@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Layouts, System.Skia, FMX.Skia, FMX.Objects,
-  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls, FMX.TabControl;
+  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls, FMX.TabControl,
+  System.Actions, FMX.ActnList;
 
 type
   TForm4 = class(TForm)
@@ -62,8 +63,19 @@ type
     lyContainerEscolherFoto: TLayout;
     Layout5: TLayout;
     Image1: TImage;
+    Layout6: TLayout;
+    Layout7: TLayout;
+    lblLogin: TLabel;
+    lblCriarConta: TLabel;
+    Rectangle1: TRectangle;
+    ActionList1: TActionList;
+    ActEscolher: TChangeTabAction;
+    ActFoto: TChangeTabAction;
+    ActLogin: TChangeTabAction;
+    ActCriarConta: TChangeTabAction;
     procedure rrBtnEntrarLoginMouseEnter(Sender: TObject);
     procedure rrBtnEntrarLoginMouseLeave(Sender: TObject);
+    procedure lblCriarContaClick(Sender: TObject);
   private
     COLOR_BTN       : TAlphaColor;
     COLOR_HOVER_BTN : TAlphaColor;
@@ -86,14 +98,19 @@ begin
 
 end;
 
+procedure TForm4.lblCriarContaClick(Sender: TObject);
+begin
+    ActCriarConta.Execute;
+end;
+
 procedure TForm4.rrBtnEntrarLoginMouseEnter(Sender: TObject);
 begin
-    rrBtnEntrarLogin.Fill.Color := COLOR_BTN;
+    rrBtnEntrarLogin.Fill.Color := COLOR_HOVER_BTN;
 end;
 
 procedure TForm4.rrBtnEntrarLoginMouseLeave(Sender: TObject);
 begin
-      rrBtnEntrarLogin.Fill.Color := COLOR_HOVER_BTN;
+      rrBtnEntrarLogin.Fill.Color := COLOR_BTN;
 end;
 
 end.
