@@ -272,6 +272,10 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="commons\u99Permissions.pas"/>
+        <DCCReference Include="view\uHome.View.pas">
+            <Form>FHome</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

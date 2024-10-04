@@ -220,7 +220,6 @@ end;
 procedure TFLogin.TratarErroPermissao(Sender: TObject);
 begin
       ShowMessage('Você não possui permissão de acesso para esse recurso!');
-
 end;
 
 

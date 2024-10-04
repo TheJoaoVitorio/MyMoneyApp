@@ -354,46 +354,54 @@ object FHome: TFHome
     Size.Height = 68.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
-    object rtBtnHomeAcao: TRectangle
-      Align = Center
-      Fill.Color = xFF5A4FFF
-      Margins.Top = 20.000000000000000000
-      Margins.Bottom = 20.000000000000000000
-      Size.Width = 52.000000000000000000
-      Size.Height = 48.000000000000000000
+    object Rectangle2: TRectangle
+      Align = Client
+      Fill.Color = xFF222222
+      Size.Width = 358.000000000000000000
+      Size.Height = 68.000000000000000000
       Size.PlatformDefault = False
-      Stroke.Color = xFF4C40FF
-      XRadius = 12.000000000000000000
-      YRadius = 12.000000000000000000
-      object imgBtnAcao: TImage
-        MultiResBitmap = <
-          item
-            Width = 16
-            Height = 16
-            PNG = {
-              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-              00C749444154384F6364C001CCCCCC64585858F60199FFFFFDFBE774E2C489A7
-              101954C004A531002B2BAB3B2323A32A10AB3133337B408531004E03FEFFFFCF
-              0A65A2B0D1014E038805036F002328B48101E6060C2C16A8181800FD6D07A4A2
-              213C86A540F94350361800E5FFFCFEFD7B17A39595D54D504843C549053729F7
-              8285858534309E41714EB217FEFEFDBB13674A047A2D03A8693A880D549C79EC
-              D8B119600934300CD2014E0380FEFF0D65A2B0D1014E038089642790BA09C2C0
-              D0DE0116C4000C0C00A26B41291E75C7CA0000000049454E44AE426082}
-          end>
-        Align = Client
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Margins.Bottom = 10.000000000000000000
-        Size.Width = 32.000000000000000000
-        Size.Height = 28.000000000000000000
+      Stroke.Kind = None
+      object rtBtnHomeAcao: TRectangle
+        Align = Center
+        Fill.Color = xFF5A4FFF
+        Margins.Top = 20.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Size.Width = 52.000000000000000000
+        Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
-        WrapMode = Center
+        Stroke.Color = xFF4C40FF
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        object imgBtnAcao: TImage
+          MultiResBitmap = <
+            item
+              Width = 16
+              Height = 16
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                00C749444154384F6364C001CCCCCC64585858F60199FFFFFDFBE774E2C489A7
+                101954C004A531002B2BAB3B2323A32A10AB3133337B408531004E03FEFFFFCF
+                0A65A2B0D1014E038805036F002328B48101E6060C2C16A8181800FD6D07A4A2
+                213C86A540F94350361800E5FFFCFEFD7B17A39595D54D504843C549053729F7
+                8285858534309E41714EB217FEFEFDBB13674A047A2D03A8693A880D549C79EC
+                D8B119600934300CD2014E0380FEFF0D65A2B0D1014E038089642790BA09C2C0
+                D0DE0116C4000C0C00A26B41291E75C7CA0000000049454E44AE426082}
+            end>
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 32.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Center
+        end
       end
     end
   end
-  object Rectangle1: TRectangle
+  object rtContainer: TRectangle
     Align = MostBottom
     Corners = [TopLeft, TopRight]
     Fill.Color = xFF222222
@@ -404,5 +412,55 @@ object FHome: TFHome
     Stroke.Kind = None
     XRadius = 20.000000000000000000
     YRadius = 20.000000000000000000
+    object lyHeaderContainer: TLayout
+      Align = MostTop
+      Size.Width = 358.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Label4: TLabel
+        Align = MostLeft
+        StyledSettings = []
+        Margins.Left = 20.000000000000000000
+        Position.X = 20.000000000000000000
+        Size.Width = 165.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Montserrat'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF5A4FFF
+        Text = 'Ultimos Lan'#231'amentos'
+        TabOrder = 0
+      end
+      object lblVerTodos: TLabel
+        Align = MostRight
+        StyledSettings = [Style]
+        Opacity = 0.699999988079071000
+        Margins.Right = 20.000000000000000000
+        Position.X = 218.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Montserrat'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFF5A4FFF
+        TextSettings.HorzAlign = Trailing
+        Text = 'Ver todos'
+        TabOrder = 1
+      end
+    end
+    object ListView1: TListView
+      ItemAppearanceClassName = 'TListItemAppearance'
+      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Transparent = True
+      Align = Client
+      Size.Width = 358.000000000000000000
+      Size.Height = 245.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
   end
 end
