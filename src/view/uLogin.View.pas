@@ -11,7 +11,13 @@ uses
   FMX.Dialogs,FMX.Layouts, System.Skia,
   FMX.Skia, FMX.Objects,FMX.Controls.Presentation,
   FMX.Edit, FMX.StdCtrls, FMX.TabControl,
-  System.Actions, FMX.ActnList, FMX.MediaLibrary.Actions, FMX.StdActns;
+  System.Actions, FMX.ActnList, FMX.MediaLibrary.Actions,
+
+
+  {$IFDEF ANDROID}
+  FMX.VirtualKeyboard,FMX.Platform,
+  {$ENDIF}
+  FMX.StdActns;
 
 type
   TFLogin = class(TForm)
@@ -117,6 +123,9 @@ type
     procedure imgEscolherFotoClick(Sender: TObject);
     procedure ActLibraryDidFinishTaking(Image: TBitmap);
     procedure ActCameraDidFinishTaking(Image: TBitmap);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     FOTO_PERFIL     : TImage;
     COLOR_BTN       : TAlphaColor;
@@ -133,6 +142,9 @@ var
 
 implementation
 
+uses
+  uHome.View;
+
 {$R *.fmx}
 
 
@@ -148,11 +160,62 @@ begin
 end;
 
 
+procedure TFLogin.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      Action := TCloseAction.caFree;
+      FLogin := nil;
+end;
+
 procedure TFLogin.FormDestroy(Sender: TObject);
 begin
       PERMISSAO.DisposeOf;
 end;
 
+
+procedure TFLogin.FormKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+{$IFDEF ANDROID}
+var
+  FService : IFMXVirtualKeyboardService;
+{$ENDIF}
+begin
+
+        {$IFDEF ANDROID}
+        if (Key = vkHardwareBack) then
+          begin
+                TPlatformServices.Current.SupportsPlatformService(IFMXVirtualKeyboardService,
+                                                                  IInterface(FService));
+                if (FService <> nil) and (TVirtualKeyboardState.Visible in FService.VirtualKeyboardState) then
+                  begin
+
+                  end
+                else
+                  begin
+                          //botao back pressionado e teclado NÃO VISIVEL...
+                        if TabControl1.ActiveTab = TabCriarConta then
+                          begin
+                                Key := 0;
+                                ActLogin.Execute
+                          end
+                        else if TabControl1.ActiveTab = TabFotoCadastro then
+                          begin
+                                Key := 0;
+                                ActCriarConta.Execute
+                          end
+                        else if TabControl1.ActiveTab = TabEscolherFoto then
+                          begin
+                                Key := 0;
+                                ActEscolher.Execute;
+                          end;
+
+                  end;
+
+          end;
+         {$ENDIF}
+
+
+
+end;
 
 procedure TFLogin.TratarErroPermissao(Sender: TObject);
 begin
@@ -168,8 +231,14 @@ end;
 
 procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
-      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
-        ActFoto.Execute;
+//      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
+//        ActFoto.Execute;
+      if not Assigned(FHome) then
+        Application.CreateForm(TFHome,FHome);
+
+      Application.MainForm := FHome;
+      FHome.Show;
+      FLogin.Close;
 end;
 
 
