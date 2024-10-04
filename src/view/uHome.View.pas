@@ -37,11 +37,13 @@ type
     lyHeaderContainer: TLayout;
     Label4: TLabel;
     lblVerTodos: TLabel;
-    ListView1: TListView;
+    lvLancamento: TListView;
+    procedure FormShow(Sender: TObject);
   private
-    { Private declarations }
+    procedure AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
+
   public
-    { Public declarations }
+
   end;
 
 var
@@ -50,5 +52,44 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFHome.FormShow(Sender: TObject);
+var
+  foto : TStream;
+begin
+      foto := nil;
+      AddLancamento('1','COMPRA','TRANSPORTE', -45,foto,20/08);
+end;
+
+
+
+
+procedure TFHome.AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
+var
+  txt : TListItemText;
+  img : TListItemImage;
+  bmp : TBitmap;
+begin
+     with lvLancamento.Items.Add do
+        begin
+            txt      := TListItemText(Objects.FindDrawable('txtDESCRICAO'));
+            txt.Text := DESCRICAO;
+
+            TListItemText(Objects.FindDrawable('txtCATEGORIA')).Text        := CATEGORIA;
+            TListItemText(Objects.FindDrawable('txtVALOR')).Text            := FormatFloat('#,##0.00',VALOR);
+            TListItemText(Objects.FindDrawable('txtDATA')).Text             := FormatDateTime('dd//mm',DT);
+            img := TListItemImage(Objects.FindDrawable('imgICONE'));
+
+            if foto <> nil then
+              begin
+                    bmp := TBitmap.Create;
+                    bmp.LoadFromStream(foto);
+
+                    img.OwnsBitmap := True; //usa-se quando estiver instanciando o bitmap
+                    img.Bitmap     := bmp;
+              end;
+        end;
+
+end;
 
 end.

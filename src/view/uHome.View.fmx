@@ -10,6 +10,7 @@ object FHome: TFHome
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object lyHeaderHome: TLayout
     Align = MostTop
@@ -452,17 +453,82 @@ object FHome: TFHome
         TabOrder = 1
       end
     end
-    object ListView1: TListView
-      ItemAppearanceClassName = 'TListItemAppearance'
-      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    object lvLancamento: TListView
+      ItemAppearanceClassName = 'TDynamicAppearance'
+      ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
       Transparent = True
+      ItemSpaces.Left = 0.000000000000000000
+      ItemSpaces.Right = 0.000000000000000000
       Align = Client
       Size.Width = 358.000000000000000000
       Size.Height = 245.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'txtDESCRICAO'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Family = 'Montserrat'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextAlign = Leading
+          Appearance.TextColor = xFF5A4FFF
+          Appearance.Width = 143.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 64.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'imgICONE'
+          AppearanceClassName = 'TImageObjectAppearance'
+          Appearance.Width = 473.000000000000000000
+          Appearance.Height = 44.000000000000000000
+          Appearance.PlaceOffset.X = -136.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtCATEGORIA'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Family = 'Montserrat'
+          Appearance.Font.Size = 10.000000000000000000
+          Appearance.TextAlign = Leading
+          Appearance.TextColor = xFF5A4FFF
+          Appearance.Width = 103.000000000000000000
+          Appearance.Height = 17.000000000000000000
+          Appearance.PlaceOffset.X = 65.000000000000000000
+          Appearance.PlaceOffset.Y = 23.000000000000000000
+          Appearance.Opacity = 0.699999988079071000
+        end
+        item
+          AppearanceObjectName = 'txtVALOR'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Family = 'Montserrat'
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.TextAlign = Trailing
+          Appearance.TextColor = xFF5A4FFF
+          Appearance.Width = 107.000000000000000000
+          Appearance.Height = 28.000000000000000000
+          Appearance.Align = Trailing
+          Appearance.PlaceOffset.X = -5.000000000000000000
+          Appearance.PlaceOffset.Y = -3.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtDATA'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Family = 'Montserrat'
+          Appearance.TextAlign = Trailing
+          Appearance.TextColor = xFF5A4FFF
+          Appearance.Width = 107.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.Align = Trailing
+          Appearance.PlaceOffset.X = -5.000000000000000000
+          Appearance.PlaceOffset.Y = 21.000000000000000000
+          Appearance.Opacity = 0.699999988079071000
+        end>
+      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+        end>
     end
   end
 end
