@@ -3,14 +3,18 @@ unit uLogin.View;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Layouts, System.Skia, FMX.Skia, FMX.Objects,
-  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls, FMX.TabControl,
-  System.Actions, FMX.ActnList;
+  u99Permissions,
+
+  System.SysUtils, System.Types, System.UITypes,
+  System.Classes, System.Variants,FMX.Types,
+  FMX.Controls, FMX.Forms, FMX.Graphics,
+  FMX.Dialogs,FMX.Layouts, System.Skia,
+  FMX.Skia, FMX.Objects,FMX.Controls.Presentation,
+  FMX.Edit, FMX.StdCtrls, FMX.TabControl,
+  System.Actions, FMX.ActnList, FMX.MediaLibrary.Actions, FMX.StdActns;
 
 type
-  TForm4 = class(TForm)
+  TFLogin = class(TForm)
     StyleBook1: TStyleBook;
     TabControl1: TTabControl;
     TabLogin: TTabItem;
@@ -80,6 +84,21 @@ type
     RoundRect10: TRoundRect;
     Layout2: TLayout;
     Image2: TImage;
+    ActLibrary: TTakePhotoFromLibraryAction;
+    ActCamera: TTakePhotoFromCameraAction;
+    TabVerPreviewPerfil: TTabItem;
+    lyTexto: TLayout;
+    lyHeaderPreviewFoto: TLayout;
+    Image3: TImage;
+    lyBtnCriarContaPreviewFoto: TLayout;
+    RoundRect3: TRoundRect;
+    lbCriarContaPreviewFoto: TLabel;
+    lyPreviewFoto: TLayout;
+    rrPreviewFoto: TRoundRect;
+    SkAnimatedImage4: TSkAnimatedImage;
+    lblPreviewNome: TLabel;
+    lblPreviewEmail: TLabel;
+    ActPreviewFoto: TChangeTabAction;
     procedure rrBtnEntrarLoginMouseEnter(Sender: TObject);
     procedure rrBtnEntrarLoginMouseLeave(Sender: TObject);
     procedure Label2Click(Sender: TObject);
@@ -93,25 +112,51 @@ type
     procedure rrBtnProximoFotoCadastroMouseLeave(Sender: TObject);
     procedure rrBtnCriarContaClick(Sender: TObject);
     procedure lblCriarContaClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure imgTirarFotoClick(Sender: TObject);
+    procedure imgEscolherFotoClick(Sender: TObject);
+    procedure ActLibraryDidFinishTaking(Image: TBitmap);
+    procedure ActCameraDidFinishTaking(Image: TBitmap);
   private
+    FOTO_PERFIL     : TImage;
     COLOR_BTN       : TAlphaColor;
     COLOR_HOVER_BTN : TAlphaColor;
+
+    PERMISSAO : T99Permissions;
+    procedure TratarErroPermissao(Sender: TObject);
   public
     constructor Create(AOwner : TComponent);override;
   end;
 
 var
-  Form4: TForm4;
+  FLogin: TFLogin;
 
 implementation
 
 {$R *.fmx}
 
-constructor TForm4.Create(AOwner: TComponent);
+
+constructor TFLogin.Create(AOwner: TComponent);
 begin
       inherited Create(AOwner);
       COLOR_BTN       := $FF5A4FFF;
       COLOR_HOVER_BTN := $FF7168FE;
+
+      PERMISSAO       := T99Permissions.Create;
+      FOTO_PERFIL     := TImage.Create(nil);
+
+end;
+
+
+procedure TFLogin.FormDestroy(Sender: TObject);
+begin
+      PERMISSAO.DisposeOf;
+end;
+
+
+procedure TFLogin.TratarErroPermissao(Sender: TObject);
+begin
+      ShowMessage('Você não possui permissão de acesso para esse recurso!');
 
 end;
 
@@ -121,49 +166,70 @@ end;
 
 
 
-procedure TForm4.rrBtnEntrarLoginClick(Sender: TObject);
+procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
       if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
         ActFoto.Execute;
 end;
 
 
+procedure TFLogin.ActCameraDidFinishTaking(Image: TBitmap);
+begin
+      rrPreviewFoto.Fill.Bitmap.Bitmap := Image;
+      ActPreviewFoto.Execute;
+end;
+
+procedure TFLogin.ActLibraryDidFinishTaking(Image: TBitmap);
+begin
+      rrPreviewFoto.Fill.Bitmap.Bitmap := Image;
+      ActPreviewFoto.Execute;
+end;
 
 
-
-procedure TForm4.Image1Click(Sender: TObject);
+procedure TFLogin.Image1Click(Sender: TObject);
 begin
       ActFoto.Execute;
 end;
 
-procedure TForm4.Image2Click(Sender: TObject);
+procedure TFLogin.Image2Click(Sender: TObject);
 begin
       ActLogin.Execute;
 end;
 
-procedure TForm4.Label2Click(Sender: TObject);
+
+procedure TFLogin.imgEscolherFotoClick(Sender: TObject);
+begin
+      PERMISSAO.PhotoLibrary(ActLibrary, TratarErroPermissao);
+end;
+
+procedure TFLogin.imgTirarFotoClick(Sender: TObject);
+begin
+      PERMISSAO.Camera(ActCamera, TratarErroPermissao );
+end;
+
+procedure TFLogin.Label2Click(Sender: TObject);
 begin
       ActLogin.Execute;
 end;
 
-procedure TForm4.lblCriarContaClick(Sender: TObject);
+procedure TFLogin.lblCriarContaClick(Sender: TObject);
 begin
       ActCriarConta.Execute;
 end;
 
-procedure TForm4.rrBtnProximoFotoCadastroClick(Sender: TObject);
+procedure TFLogin.rrBtnProximoFotoCadastroClick(Sender: TObject);
 begin
       ActEscolher.Execute;
 end;
 
 
 
-procedure TForm4.rrBtnProximoFotoCadastroMouseEnter(Sender: TObject);
+procedure TFLogin.rrBtnProximoFotoCadastroMouseEnter(Sender: TObject);
 begin
       rrBtnProximoFotoCadastro.Fill.Color := COLOR_HOVER_BTN;
 end;
 
-procedure TForm4.rrBtnProximoFotoCadastroMouseLeave(Sender: TObject);
+procedure TFLogin.rrBtnProximoFotoCadastroMouseLeave(Sender: TObject);
 begin
       rrBtnProximoFotoCadastro.Fill.Color := COLOR_BTN;
 end;
@@ -171,18 +237,18 @@ end;
 
 
 
-procedure TForm4.rrBtnCriarContaClick(Sender: TObject);
+procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
 begin
     if (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
         ActFoto.Execute;
 end;
 
-procedure TForm4.rrBtnCriarContaMouseEnter(Sender: TObject);
+procedure TFLogin.rrBtnCriarContaMouseEnter(Sender: TObject);
 begin
       rrBtnCriarConta.Fill.Color := COLOR_HOVER_BTN;
 end;
 
-procedure TForm4.rrBtnCriarContaMouseLeave(Sender: TObject);
+procedure TFLogin.rrBtnCriarContaMouseLeave(Sender: TObject);
 begin
       rrBtnCriarConta.Fill.Color := COLOR_BTN;
 end;
@@ -190,12 +256,12 @@ end;
 
 
 
-procedure TForm4.rrBtnEntrarLoginMouseEnter(Sender: TObject);
+procedure TFLogin.rrBtnEntrarLoginMouseEnter(Sender: TObject);
 begin
       rrBtnEntrarLogin.Fill.Color := COLOR_HOVER_BTN;
 end;
 
-procedure TForm4.rrBtnEntrarLoginMouseLeave(Sender: TObject);
+procedure TFLogin.rrBtnEntrarLoginMouseLeave(Sender: TObject);
 begin
       rrBtnEntrarLogin.Fill.Color := COLOR_BTN;
 end;

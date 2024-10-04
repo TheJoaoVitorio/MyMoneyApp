@@ -3,8 +3,10 @@
 	<Transactions>
     <Transaction>2024/09/26 15:50:33.000.602,=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
     <Transaction>2024/10/03 14:46:03.000.971,=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.pas</Transaction>
-    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.fmx=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.fmx</Transaction>
-    <Transaction>2024/10/03 17:06:58.000.065,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\MyMoneyApp.dproj</Transaction>
+    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.pas=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.fmx=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.fmx</Transaction>
+    <Transaction>2024/10/03 17:06:58.000.065,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\MyMoneyApp.dproj=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2024/10/04 11:15:58.341,=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/04 11:16:46.106,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\commons\u99Permissions.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
