@@ -20,9 +20,6 @@ Coordinates=333,53,70,33
 [edtSenhaLogin]
 Coordinates=84,70,88,51
 
-[Layout3]
-Coordinates=333,105,53,33
-
 [TabCriarConta]
 Coordinates=333,157,85,33
 
@@ -66,12 +63,6 @@ Coordinates=259,301,74,33
 [RoundRect2]
 Coordinates=180,301,74,33
 
-[Layout2]
-Coordinates=62,301,53,33
-
-[edtNomeLogin]
-Coordinates=103,1,40,51
-
 [lySenhaCadastroLogin]
 Coordinates=437,301,53,33
 
@@ -83,4 +74,13 @@ Coordinates=35,70,40,51
 
 [lyFormEntrarEmail]
 Coordinates=338,301,97,33
+
+[lyCabecalho]
+Coordinates=62,301,53,33
+
+[lyFormCriarConta]
+Coordinates=333,105,53,33
+
+[edtNomeCadastroLogin]
+Coordinates=103,1,40,51
 

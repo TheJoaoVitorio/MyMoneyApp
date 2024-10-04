@@ -16,12 +16,12 @@ type
     TabLogin: TTabItem;
     TabCriarConta: TTabItem;
     lyCriarConta: TLayout;
-    Layout2: TLayout;
+    lyCabecalho: TLayout;
     SkAnimatedImage1: TSkAnimatedImage;
-    Layout3: TLayout;
+    lyFormCriarConta: TLayout;
     lyNomeCadastroLogin: TLayout;
     RoundRect1: TRoundRect;
-    edtNomeLogin: TEdit;
+    edtNomeCadastroLogin: TEdit;
     lySenhaCadastroLogin: TLayout;
     RoundRect2: TRoundRect;
     edtSenhaCadastroLogin: TEdit;
@@ -42,7 +42,7 @@ type
     RoundRect6: TRoundRect;
     edtEmailCadastroLogin: TEdit;
     lyBtnCadastroLogin: TLayout;
-    RoundRect3: TRoundRect;
+    rrBtnCriarConta: TRoundRect;
     lblBtnCadastroLogin: TLabel;
     TabFotoCadastro: TTabItem;
     lyAddFotoCadastro: TLayout;
@@ -51,9 +51,9 @@ type
     lblTextoFoto: TLabel;
     Layout1: TLayout;
     Layout4: TLayout;
-    RoundRect8: TRoundRect;
+    rrBtnProximoFotoCadastro: TRoundRect;
     Label1: TLabel;
-    TabItem1: TTabItem;
+    TabEscolherFoto: TTabItem;
     lyEscolherFoto: TLayout;
     lblTituloEscolherFoto: TLabel;
     lyTirarFoto: TLayout;
@@ -61,20 +61,37 @@ type
     imgTirarFoto: TImage;
     imgEscolherFoto: TImage;
     lyContainerEscolherFoto: TLayout;
-    Layout5: TLayout;
+    lyHeader: TLayout;
     Image1: TImage;
-    Layout6: TLayout;
-    Layout7: TLayout;
+    lyFooter: TLayout;
+    lyFooterContent: TLayout;
     lblLogin: TLabel;
     lblCriarConta: TLabel;
-    Rectangle1: TRectangle;
     ActionList1: TActionList;
     ActEscolher: TChangeTabAction;
     ActFoto: TChangeTabAction;
     ActLogin: TChangeTabAction;
     ActCriarConta: TChangeTabAction;
+    RoundRect9: TRoundRect;
+    lyFooterCriarConta: TLayout;
+    Layout7: TLayout;
+    Label2: TLabel;
+    Label3: TLabel;
+    RoundRect10: TRoundRect;
+    Layout2: TLayout;
+    Image2: TImage;
     procedure rrBtnEntrarLoginMouseEnter(Sender: TObject);
     procedure rrBtnEntrarLoginMouseLeave(Sender: TObject);
+    procedure Label2Click(Sender: TObject);
+    procedure rrBtnProximoFotoCadastroClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure rrBtnEntrarLoginClick(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure rrBtnCriarContaMouseEnter(Sender: TObject);
+    procedure rrBtnCriarContaMouseLeave(Sender: TObject);
+    procedure rrBtnProximoFotoCadastroMouseEnter(Sender: TObject);
+    procedure rrBtnProximoFotoCadastroMouseLeave(Sender: TObject);
+    procedure rrBtnCriarContaClick(Sender: TObject);
     procedure lblCriarContaClick(Sender: TObject);
   private
     COLOR_BTN       : TAlphaColor;
@@ -98,19 +115,93 @@ begin
 
 end;
 
+
+
+
+
+
+
+procedure TForm4.rrBtnEntrarLoginClick(Sender: TObject);
+begin
+      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
+        ActFoto.Execute;
+end;
+
+
+
+
+
+procedure TForm4.Image1Click(Sender: TObject);
+begin
+      ActFoto.Execute;
+end;
+
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+      ActLogin.Execute;
+end;
+
+procedure TForm4.Label2Click(Sender: TObject);
+begin
+      ActLogin.Execute;
+end;
+
 procedure TForm4.lblCriarContaClick(Sender: TObject);
 begin
-    ActCriarConta.Execute;
+      ActCriarConta.Execute;
 end;
+
+procedure TForm4.rrBtnProximoFotoCadastroClick(Sender: TObject);
+begin
+      ActEscolher.Execute;
+end;
+
+
+
+procedure TForm4.rrBtnProximoFotoCadastroMouseEnter(Sender: TObject);
+begin
+      rrBtnProximoFotoCadastro.Fill.Color := COLOR_HOVER_BTN;
+end;
+
+procedure TForm4.rrBtnProximoFotoCadastroMouseLeave(Sender: TObject);
+begin
+      rrBtnProximoFotoCadastro.Fill.Color := COLOR_BTN;
+end;
+
+
+
+
+procedure TForm4.rrBtnCriarContaClick(Sender: TObject);
+begin
+    if (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
+        ActFoto.Execute;
+end;
+
+procedure TForm4.rrBtnCriarContaMouseEnter(Sender: TObject);
+begin
+      rrBtnCriarConta.Fill.Color := COLOR_HOVER_BTN;
+end;
+
+procedure TForm4.rrBtnCriarContaMouseLeave(Sender: TObject);
+begin
+      rrBtnCriarConta.Fill.Color := COLOR_BTN;
+end;
+
+
+
 
 procedure TForm4.rrBtnEntrarLoginMouseEnter(Sender: TObject);
 begin
-    rrBtnEntrarLogin.Fill.Color := COLOR_HOVER_BTN;
+      rrBtnEntrarLogin.Fill.Color := COLOR_HOVER_BTN;
 end;
 
 procedure TForm4.rrBtnEntrarLoginMouseLeave(Sender: TObject);
 begin
       rrBtnEntrarLogin.Fill.Color := COLOR_BTN;
 end;
+
+
+
+
 
 end.
