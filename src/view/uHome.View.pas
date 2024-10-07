@@ -38,7 +38,10 @@ type
     Label4: TLabel;
     lblVerTodos: TLabel;
     lvLancamento: TListView;
+    Layout1: TLayout;
     procedure FormShow(Sender: TObject);
+    procedure lvLancamentoUpdateObjects(const Sender: TObject;
+      const AItem: TListViewItem);
   private
     procedure AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
 
@@ -58,11 +61,30 @@ var
   foto : TStream;
 begin
       foto := nil;
+
       AddLancamento('1','COMPRA','TRANSPORTE', -45,foto,20/08);
 end;
 
 
 
+
+procedure TFHome.lvLancamentoUpdateObjects(const Sender: TObject;
+  const AItem: TListViewItem);
+var
+  txt : TListItemText;
+  img : TListItemImage;
+begin
+      txt       := TListItemText(AItem.Objects.FindDrawable('txtDESCRICAO'));
+      txt.Width := lvLancamento.Width - txt.PlaceOffset.X - 100;
+
+      img := TListItemImage(AItem.Objects.FindDrawable('imgICONE'));
+
+      if lvLancamento.Width < 250 then
+        begin
+              img.Visible       := False;
+              txt.PlaceOffset.X := 2;
+        end;
+end;
 
 procedure TFHome.AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
 var

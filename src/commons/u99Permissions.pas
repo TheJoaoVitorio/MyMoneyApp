@@ -2,7 +2,19 @@ unit u99Permissions;
 
 interface
 
-uses System.Permissions, FMX.DialogService, FMX.MediaLibrary.Actions
+
+  uses System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.Actions,System.Messaging,
+  System.Permissions, FMX.DialogService, FMX.MediaLibrary.Actions,FMX.Media
+
+
+
+(*
+   uses System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, System.Permissions,
+    FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, System.Sensors, FMX.Media,
+    FMX.Objects, FMX.MediaLibrary.Actions, System.Actions,System.Messaging, FMX.ActnList,
+    FMX.DialogService, FMX.Graphics, FMX.StdActns, FMX.Controls.Presentation
+*)
 
 {$IFDEF ANDROID}
 ,Androidapi.Helpers, Androidapi.JNI.JavaTypes, Androidapi.JNI.Os
@@ -12,6 +24,7 @@ uses System.Permissions, FMX.DialogService, FMX.MediaLibrary.Actions
 ;
 
 type
+
     TCallbackProc = procedure(Sender: TObject) of Object;
 
     T99Permissions = class
@@ -19,15 +32,41 @@ type
         CurrentRequest : string;
         pCamera, pReadStorage, pWriteStorage : string; // Camera / Library
         pFineLocation, pCoarseLocation : string; // GPS
-        pPhoneState : string; // Phone State
+        FSavedCameraActive: Boolean;
+
+(*
+          procedure PermissionRequestResult( Sender: TObject;
+                      const APermissions: TArray<string>;
+                      const AGrantResults: TArray<TPermissionStatus>);
+
 
         procedure PermissionRequestResult( Sender: TObject;
-                    const APermissions: TArray<string>;
-                    const AGrantResults: TArray<TPermissionStatus>);
+                    const APermissions: ClassicStringDynArray;
+                    const AGrantResults: TClassicPermissionStatusDynArray); //TArray<TPermissionStatus>);
+*)
+    procedure PermissionRequestResult(Sender: TObject;
+                   const APermissions: TClassicStringDynArray;
+                   const AGrantResults: TClassicPermissionStatusDynArray);
+
+
+    procedure ActivateCameraPermissionRequestResult(Sender: TObject;
+                   const APermissions: TClassicStringDynArray;
+                   const AGrantResults: TClassicPermissionStatusDynArray);
+
+(*
+      procedure LoadPicturePermissionRequestResult(Sender: TObject;
+                     const APermissions: TClassicStringDynArray;
+                     const AGrantResults: TClassicPermissionStatusDynArray);
+*)
+
+    procedure DisplayRationale(Sender: TObject; const APermissions: TClassicStringDynArray; const APostRationaleProc: TProc);
+
+
     public
         MyCallBack, MyCallBackError : TCallbackProc;
         MyCameraAction : TTakePhotoFromCameraAction;
         MyLibraryAction : TTakePhotoFromLibraryAction;
+        CameraComponent: TCameraComponent;
 
         constructor Create;
         function VerifyCameraAccess(): boolean;
@@ -37,13 +76,14 @@ type
                         ACallBackError: TCallbackProc = nil);
         procedure Location(ACallBack: TCallbackProc = nil;
                         ACallBackError: TCallbackProc = nil);
-        procedure PhoneState(ACallBack: TCallbackProc = nil;
-                        ACallBackError: TCallbackProc = nil);
+
+
     published
         //property CameraGranted: boolean read FCameraGranted write FCameraGranted;
 end;
 
 implementation
+
 
 function T99Permissions.VerifyCameraAccess(): boolean;
 begin
@@ -64,13 +104,15 @@ begin
     pWriteStorage := JStringToString(TJManifest_permission.JavaClass.WRITE_EXTERNAL_STORAGE);
     pCoarseLocation := JStringToString(TJManifest_permission.JavaClass.ACCESS_COARSE_LOCATION);
     pFineLocation := JStringToString(TJManifest_permission.JavaClass.ACCESS_FINE_LOCATION);
-    pPhoneState := JStringToString(TJManifest_permission.JavaClass.READ_PHONE_STATE);
+
     {$ENDIF}
 end;
 
 procedure T99Permissions.PermissionRequestResult(Sender: TObject;
-  const APermissions: TArray<string>;
-  const AGrantResults: TArray<TPermissionStatus>);
+  const APermissions: TClassicStringDynArray; //TArray<string>;
+  const AGrantResults: TClassicPermissionStatusDynArray); //TArray<TPermissionStatus>);
+
+
 var
     ret : boolean;
 begin
@@ -93,7 +135,7 @@ begin
 
     // LIBRARY (READ_EXTERNAL_STORAGE + WRITE_EXTERNAL_STORAGE)
     if CurrentRequest = 'LIBRARY' then
-    begin
+    begin        
         if (Length(AGrantResults) = 2) and
            (AGrantResults[0] = TPermissionStatus.Granted) and
            (AGrantResults[1] = TPermissionStatus.Granted) then
@@ -113,31 +155,47 @@ begin
            (AGrantResults[1] = TPermissionStatus.Granted) then
         begin
             ret := true;
-
-            if Assigned(MyCallBack) then
+            
+            if Assigned(MyCallBack) then            
                 MyCallBack(Self);
         end;
     end;
 
-    // PHONE STATE
-    if CurrentRequest = 'READ_PHONE_STATE' then
-    begin
-        if (Length(AGrantResults) = 1) and
-           (AGrantResults[0] = TPermissionStatus.Granted) then
-        begin
-            ret := true;
-
-            if Assigned(MyCallBack) then
-                MyCallBack(Self);
-        end;
-    end;
-
-    if NOT ret then
+    if NOT ret then    
     begin
         if Assigned(MyCallBackError) then
             MyCallBackError(Self);
     end;
 end;
+
+
+(*
+  procedure T99Permissions.LoadPicturePermissionRequestResult(Sender: TObject; const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray);
+  begin
+    if (Length(AGrantResults) = 2) and
+       (AGrantResults[0] = TPermissionStatus.Granted) and
+       (AGrantResults[1] = TPermissionStatus.Granted) then
+      TakePhotoFromLibraryAction1.Execute
+    else
+      TDialogService.ShowMessage('Cannot do photo editing because the required permissions are not granted');
+  end;
+*)
+
+procedure T99Permissions.ActivateCameraPermissionRequestResult(Sender: TObject; const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray);
+begin
+  // 1 permission involved: CAMERA
+  if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then
+  begin
+    { Turn on the Camera }
+    CameraComponent.Active := True;
+    FSavedCameraActive := True;
+  end
+  else
+    TDialogService.ShowMessage('Cannot start the camera because the required permission has not been granted');
+end;
+
+
+
 
 procedure T99Permissions.Camera(ActionPhoto: TTakePhotoFromCameraAction;
                                 ACallBackError: TCallbackProc = nil);
@@ -148,7 +206,9 @@ begin
 
     {$IFDEF ANDROID}
     PermissionsService.RequestPermissions([pCamera, pReadStorage, pWriteStorage],
-                                           PermissionRequestResult);
+                                           PermissionRequestResult,DisplayRationale);
+
+//    PermissionsService.RequestPermissions([FPermissionCamera], ActivateCameraPermissionRequestResult, DisplayRationale);
     {$ENDIF}
 
     {$IFDEF IOS}
@@ -156,7 +216,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('No soportado en Windows');
     {$ENDIF}
 end;
 
@@ -169,7 +229,7 @@ begin
 
     {$IFDEF ANDROID}
     PermissionsService.RequestPermissions([pReadStorage, pWriteStorage],
-                                           PermissionRequestResult);
+                                           PermissionRequestResult,DisplayRationale);
     {$ENDIF}
 
     {$IFDEF IOS}
@@ -177,7 +237,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('No soportado en Windows');
     {$ENDIF}
 end;
 
@@ -191,39 +251,33 @@ begin
 
     {$IFDEF ANDROID}
     PermissionsService.RequestPermissions([pCoarseLocation, pFineLocation],
-                                           PermissionRequestResult);
+                                           PermissionRequestResult,DisplayRationale);
     {$ENDIF}
 
     {$IFDEF IOS}
     if Assigned(MyCallBack) then
-        ACallBack(Self);
+        MyCallBack(Self);
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('No soportado en Windows');
     {$ENDIF}
 end;
 
-procedure T99Permissions.PhoneState(ACallBack: TCallbackProc = nil;
-                                  ACallBackError: TCallbackProc = nil);
+
+// Optional rationale display routine to display permission requirement rationale to the user
+procedure T99Permissions.DisplayRationale(Sender: TObject; const APermissions: TClassicStringDynArray; const APostRationaleProc: TProc);
 begin
-    MyCallBack := ACallBack;
-    MyCallBackError := ACallBackError;
-    CurrentRequest := 'READ_PHONE_STATE';
-
-    {$IFDEF ANDROID}
-    PermissionsService.RequestPermissions([pPhoneState],
-                                           PermissionRequestResult);
-    {$ENDIF}
-
-    {$IFDEF IOS}
-    if Assigned(MyCallBack) then
-        ACallBack(Self);
-    {$ENDIF}
-
-    {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
-    {$ENDIF}
+  // Show an explanation to the user *asynchronously* - don't block this thread waiting for the user's response!
+  // After the user sees the explanation, invoke the post-rationale routine to request the permissions
+ // TDialogService.ShowMessage('The app needs to access the camera in order to work',
+(*
+      procedure(const AResult: TModalResult)
+      begin
+        APostRationaleProc;
+      end)
+*)
 end;
+
 
 end.
