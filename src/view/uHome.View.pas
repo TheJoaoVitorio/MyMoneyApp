@@ -42,6 +42,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure lvLancamentoUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
+    procedure rtBtnHomeAcaoMouseEnter(Sender: TObject);
+    procedure rtBtnHomeAcaoMouseLeave(Sender: TObject);
   private
     procedure AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
 
@@ -75,6 +77,7 @@ var
   img : TListItemImage;
 begin
       txt       := TListItemText(AItem.Objects.FindDrawable('txtDESCRICAO'));
+
       txt.Width := lvLancamento.Width - txt.PlaceOffset.X - 100;
 
       img := TListItemImage(AItem.Objects.FindDrawable('imgICONE'));
@@ -83,7 +86,18 @@ begin
         begin
               img.Visible       := False;
               txt.PlaceOffset.X := 2;
-        end;
+        end
+
+end;
+
+procedure TFHome.rtBtnHomeAcaoMouseEnter(Sender: TObject);
+begin
+      rtBtnHomeAcao.Fill.Color := $FF7168FE;
+end;
+
+procedure TFHome.rtBtnHomeAcaoMouseLeave(Sender: TObject);
+begin
+      rtBtnHomeAcao.Fill.Color := $FF5A4FFF;
 end;
 
 procedure TFHome.AddLancamento(ID_LANCAMENTO,DESCRICAO, CATEGORIA : String; VALOR : Double; FOTO: TStream;DT :TDateTime );
@@ -96,6 +110,7 @@ begin
         begin
             txt      := TListItemText(Objects.FindDrawable('txtDESCRICAO'));
             txt.Text := DESCRICAO;
+
 
             TListItemText(Objects.FindDrawable('txtCATEGORIA')).Text        := CATEGORIA;
             TListItemText(Objects.FindDrawable('txtVALOR')).Text            := FormatFloat('#,##0.00',VALOR);
