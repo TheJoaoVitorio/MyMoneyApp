@@ -1,0 +1,51 @@
+unit uLancamentos.view;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView;
+
+type
+  TFLancamento = class(TForm)
+    lyListaMeses: TLayout;
+    lyNavbarBottom: TLayout;
+    lyHeader: TLayout;
+    Image1: TImage;
+    Label1: TLabel;
+    Image2: TImage;
+    Image3: TImage;
+    RoundRect1: TRoundRect;
+    Label2: TLabel;
+    rtNavbarBottom: TRectangle;
+    lyBtnNavbarBottom: TLayout;
+    rtBtnHomeAcao: TRectangle;
+    imgBtnAcao: TImage;
+    Layout1: TLayout;
+    Layout3: TLayout;
+    lblValorDespesas: TLabel;
+    Label5: TLabel;
+    Layout2: TLayout;
+    Label3: TLabel;
+    Label4: TLabel;
+    Layout4: TLayout;
+    Label6: TLabel;
+    Label7: TLabel;
+    lvLancamento: TListView;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FLancamento: TFLancamento;
+
+implementation
+
+{$R *.fmx}
+
+end.
