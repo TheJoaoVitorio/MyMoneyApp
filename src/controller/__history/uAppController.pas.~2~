@@ -1,0 +1,16 @@
+unit uAppController;
+
+interface
+
+uses
+  uUsuarioVo;
+
+type
+    TAppController = class
+      private
+      public
+    end;
+
+implementation
+
+end.
