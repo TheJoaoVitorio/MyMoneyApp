@@ -23,16 +23,6 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Base)'=='true') or '$(Base_iOSDevice64)'!=''">
-        <Base_iOSDevice64>true</Base_iOSDevice64>
-        <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='iOSSimARM64' and '$(Base)'=='true') or '$(Base_iOSSimARM64)'!=''">
-        <Base_iOSSimARM64>true</Base_iOSSimARM64>
-        <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
         <Base_Win32>true</Base_Win32>
         <CfgParent>Base</CfgParent>
@@ -155,58 +145,6 @@
         <VerInfo_Build>1</VerInfo_Build>
         <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0;CFBundleShortVersionString=1.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;NSLocationAlwaysAndWhenInUseUsageDescription=The reason for accessing the location information of the user;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSPhotoLibraryAddUsageDescription=The reason for adding to the photo library;NSCameraUsageDescription=The reason for accessing the camera;NSFaceIDUsageDescription=The reason for accessing the face id;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSSiriUsageDescription=The reason for accessing Siri;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing bluetooth;NSBluetoothPeripheralUsageDescription=The reason for accessing bluetooth peripherals;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSMotionUsageDescription=The reason for accessing the accelerometer;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers</VerInfo_Keys>
-        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_BundleId>$(MSBuildProjectName)</VerInfo_BundleId>
-        <iOS_AppStore1024>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_1024x1024.png</iOS_AppStore1024>
-        <iPhone_AppIcon120>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png</iPhone_AppIcon180>
-        <iPhone_Launch2x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2x.png</iPhone_Launch2x>
-        <iPhone_LaunchDark2x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImageDark_2x.png</iPhone_LaunchDark2x>
-        <iPhone_Launch3x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_3x.png</iPhone_Launch3x>
-        <iPhone_LaunchDark3x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImageDark_3x.png</iPhone_LaunchDark3x>
-        <iPhone_Spotlight80>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png</iPhone_Spotlight80>
-        <iPhone_Spotlight120>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_120x120.png</iPhone_Spotlight120>
-        <iPhone_Setting58>$(BDS)\bin\Artwork\iOS\iPhone\FM_SettingIcon_58x58.png</iPhone_Setting58>
-        <iPhone_Setting87>$(BDS)\bin\Artwork\iOS\iPhone\FM_SettingIcon_87x87.png</iPhone_Setting87>
-        <iPhone_Notification40>$(BDS)\bin\Artwork\iOS\iPhone\FM_NotificationIcon_40x40.png</iPhone_Notification40>
-        <iPhone_Notification60>$(BDS)\bin\Artwork\iOS\iPhone\FM_NotificationIcon_60x60.png</iPhone_Notification60>
-        <iPad_AppIcon152>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png</iPad_AppIcon152>
-        <iPad_AppIcon167>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_167x167.png</iPad_AppIcon167>
-        <iPad_Launch2x>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImage_2x.png</iPad_Launch2x>
-        <iPad_LaunchDark2x>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageDark_2x.png</iPad_LaunchDark2x>
-        <iPad_SpotLight80>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png</iPad_SpotLight80>
-        <iPad_Setting58>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png</iPad_Setting58>
-        <iPad_Notification40>$(BDS)\bin\Artwork\iOS\iPad\FM_NotificationIcon_40x40.png</iPad_Notification40>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Base_iOSSimARM64)'!=''">
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=en;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=1.0.0;CFBundleShortVersionString=1.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;NSLocationAlwaysAndWhenInUseUsageDescription=The reason for accessing the location information of the user;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSPhotoLibraryAddUsageDescription=The reason for adding to the photo library;NSCameraUsageDescription=The reason for accessing the camera;NSFaceIDUsageDescription=The reason for accessing the face id;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSSiriUsageDescription=The reason for accessing Siri;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing bluetooth;NSBluetoothPeripheralUsageDescription=The reason for accessing bluetooth peripherals;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSMotionUsageDescription=The reason for accessing the accelerometer;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers</VerInfo_Keys>
-        <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <iOS_AppStore1024>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_1024x1024.png</iOS_AppStore1024>
-        <iPhone_AppIcon120>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_120x120.png</iPhone_AppIcon120>
-        <iPhone_AppIcon180>$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png</iPhone_AppIcon180>
-        <iPhone_Launch2x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_2x.png</iPhone_Launch2x>
-        <iPhone_LaunchDark2x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImageDark_2x.png</iPhone_LaunchDark2x>
-        <iPhone_Launch3x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_3x.png</iPhone_Launch3x>
-        <iPhone_LaunchDark3x>$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImageDark_3x.png</iPhone_LaunchDark3x>
-        <iPhone_Spotlight80>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_80x80.png</iPhone_Spotlight80>
-        <iPhone_Spotlight120>$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_120x120.png</iPhone_Spotlight120>
-        <iPhone_Setting58>$(BDS)\bin\Artwork\iOS\iPhone\FM_SettingIcon_58x58.png</iPhone_Setting58>
-        <iPhone_Setting87>$(BDS)\bin\Artwork\iOS\iPhone\FM_SettingIcon_87x87.png</iPhone_Setting87>
-        <iPhone_Notification40>$(BDS)\bin\Artwork\iOS\iPhone\FM_NotificationIcon_40x40.png</iPhone_Notification40>
-        <iPhone_Notification60>$(BDS)\bin\Artwork\iOS\iPhone\FM_NotificationIcon_60x60.png</iPhone_Notification60>
-        <iPad_AppIcon152>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_152x152.png</iPad_AppIcon152>
-        <iPad_AppIcon167>$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_167x167.png</iPad_AppIcon167>
-        <iPad_Launch2x>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImage_2x.png</iPad_Launch2x>
-        <iPad_LaunchDark2x>$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageDark_2x.png</iPad_LaunchDark2x>
-        <iPad_SpotLight80>$(BDS)\bin\Artwork\iOS\iPad\FM_SpotlightSearchIcon_80x80.png</iPad_SpotLight80>
-        <iPad_Setting58>$(BDS)\bin\Artwork\iOS\iPad\FM_SettingIcon_58x58.png</iPad_Setting58>
-        <iPad_Notification40>$(BDS)\bin\Artwork\iOS\iPad\FM_NotificationIcon_40x40.png</iPad_Notification40>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>FMXfrLanguageTurkish28;FMXfrLanguageHungarian28;vclwinx;fcxpTee28;ACBr_TCP;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;fcxc28;fqbFD28;frLanguageSpanish28;frLanguageSwiss28;appanalytics;IndyProtocols;vclx;ACBr_OpenSSL;frxe28;dbxcds;vcledge;frLanguageSwedish28;Skia.Package.RTL;FmxTeeUI;frxFD28;FMXfrLanguageDanish28;fsDB28;FMXfrxe28;frxADO28;FireDACSqliteDriver;DbxClientDriver;FMXfrLanguageSwedish28;frLanguageDutch28;frLanguageDanish28;soapmidas;TeeUI;dbexpress;fcx28;frxDBX28;FMXfrLanguageGerman28;fqb28;inet;frLanguageLithuanian28;vcltouch;FMXfcxpd28;ImportExcel;frLanguageRussian28;frGraphicsLibrary28;FMXfrLanguageRomanian28;fmxdae;CustomIPTransport;FMXfrLanguageBrazil228;ACBr_NFe;frFDDataLibrary28;IndySystem;ACBr_Diversos;frLanguageFarsi28;FMXfrLanguageFrench28;frLanguageSlovak28;frLanguageChinese28;ACBr_SAT;frControlsLibrary28;frxQueryBuilder28;FMXfrxADO28;FMXfrLanguageLatvian28;frxIntIOIndy28;frLanguageHebrew28;fqbADO28;ACBr_TEFD;FMXfrxCDS28;vclFireDAC;ACBr_SPED;ACBr_CTe;FireDACCommon;ACBr_SEF2;frLanguageArabic28;fqbDBX28;FMXfsTee28;frCoreLibrary28;bindcompdbx;frLanguageCatalon28;frxHTML28;rtl;FireDACMySQLDriver;frLanguageBrazil28;FMXfrLanguageSwiss28;FMXfcxcd28;FMXfrLanguageArabic28;DBXSqliteDriver;frxDBXQueryBuilder28;frLanguageRomanian28;ACBr_Sintegra;FMXfrLanguageItalian28;ACBr_Serial;ACBr_Comum;ACBr_MDFe;FMXfrLanguageSpanish28;FMXfrLanguageBrazil128;FMXfrLanguageCzech28;vclimg;FMXfcxed28;ACBr_NFeDanfeESCPOS;inetdbxpress;FireDAC;xmlrtl;frLanguageItalian28;FMXfrxDB28;frxPDF28;FMXfsDB28;frLanguageCroatian28;dsnap;fsADO28;FMXfrxFD28;FMXfsADO28;ACBr_SATECFVirtual;fmxobj;bindcompvclsmp;ACBr_SATExtratoFR;FMXfrLanguageTaiwan28;FMXfrLanguagePolish28;frLanguageUkrainian28;ACBr_PAF;frADODataLibrary28;FireDACCommonDriver;IndyIPClient;frxTee28;FMXfrLanguageLithuanian28;bindcompvclwinx;ACBr_Convenio115;frLanguageBrazil128;FMXfcxpTeed28;frLanguageFrench28;bindcompfmx;FMXfrLanguageCatalon28;inetdb;frxSM28;ACBr_LFD;frLanguageLatvian28;Tee;vclactnband;frxIntIO28;fmxFireDAC;FMXfrx28;frLanguageJapanese28;DBXMySQLDriver;frSmartMemo28;frLanguageSerbian28;VclSmp;FMXfrLanguageRussian28;fmxase;FMXfrLanguageSlovene28;frx28;FMXfrLanguageHebrew28;FMXfrLanguageCroatian28;fsFD28;dbrtl;FMXfrLanguageSerbian28;Skia.Package.FMX;ACBr_NFSe;TeeDB;FMXfrLanguageIndonesian28;FireDACMSAccDriver;FMXfrLanguageBulgarian28;fqbSM28;frLanguagePortuguese28;frLanguageBulgarian28;frLanguagePolish28;vcldsnap;frxDB28;DBXInterBaseDriver;frLocalizationLibrary28;FMXfrLanguageBrazil28;FMXfrLanguageGreek28;FMXfcxd28;ACBr_GNRE;FMXfrLocalizationLibrary28;frLanguageTaiwan28;Skia.Package.VCL;vcldb;ACBr_Integrador;ACBr_PIXCD;frLanguageGerman28;fs28;frLanguageIndonesian28;FMXfrxTee28;bindcomp;FMXfrLanguageSlovak28;ACBr_BoletoFR;IndyCore;RESTBackendComponents;fsTee28;frLanguageBrazil228;FMXfrCoreLibrary28;frxADOQueryBuilder28;FMXfs28;fcxp28;FireDACADSDriver;frLanguageHungarian28;RESTComponents;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;FMXfrLanguageFarsi28;FMXfrLanguageUkrainian28;FMXfrLanguageDutch28;FMXfrLanguageChinese28;FMXfrLanguagePortuguese28;frxcs28;FMXfrLanguageJapanese28;ACBr_Boleto;frLanguageSlovene28;FireDACPgDriver;ACBr_SATExtratoESCPOS;tethering;frxFDQueryBuilder28;frLanguageTurkish28;bindcompvcl;frLanguageCzech28;fcxe28;frLanguageGreek28;CloudService;FMXfrxDBX28;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -261,6 +199,8 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -275,6 +215,14 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="commons\u99Permissions.pas"/>
+        <DCCReference Include="view\uLancamentos.view.pas">
+            <Form>FLancamento</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="VO\uUsuarioVO.pas"/>
+        <DCCReference Include="controller\uAppController.pas"/>
+        <DCCReference Include="connection\uConexao.pas"/>
+        <DCCReference Include="controller\uInstanceController.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -298,12 +246,6 @@
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\VCL\Win32\dclfqbIBX28.bpl">FastQueryBuilder - IBX Engine by Fast Reports Inc</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\VCL\Win32\dclfrxIBX28.bpl">FastReport VCL - IBX Components by Fast Reports Inc</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\VCL\Win32\dclfsIBX28.bpl">FastScript VCL - IBX Components by Fast Reports Inc</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\VCL\Win32\frxIBXQueryBuilder28.bpl">FastReport VCL - FastQueryBuilder - IBX by Fast Reports Inc</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\FMX\Win32\dclFMXfrxIBX28.bpl">FastReport FMX - IBX Components by Fast Reports Inc</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\2024.2.1\Trial\LibRS28\FMX\Win32\dclFMXfsIBX28.bpl">FastScript FMX - IBX Components by Fast Reports Inc</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
@@ -799,6 +741,49 @@
                 <DeployFile LocalName="Win32\Debug\MyMoneyApp.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MyMoneyApp.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Release\MyMoneyApp.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteDir>.\</RemoteDir>
+                        <RemoteName>MyMoneyApp.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="database\database.sql" Configuration="Debug" Class="File">
+                    <Platform Name="Android">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="database\database.sql" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>database.sql</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>database.sql</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1628,8 +1613,6 @@
             <Platforms>
                 <Platform value="Android">True</Platform>
                 <Platform value="Android64">True</Platform>
-                <Platform value="iOSDevice64">False</Platform>
-                <Platform value="iOSSimARM64">False</Platform>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>

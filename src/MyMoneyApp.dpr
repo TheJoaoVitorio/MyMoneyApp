@@ -6,7 +6,12 @@ uses
   FMX.Skia,
   uLogin.View in 'view\uLogin.View.pas' {FLogin},
   uHome.View in 'view\uHome.View.pas' {FHome},
-  u99Permissions in 'commons\u99Permissions.pas';
+  u99Permissions in 'commons\u99Permissions.pas',
+  uLancamentos.view in 'view\uLancamentos.view.pas' {FLancamento},
+  uUsuarioVO in 'VO\uUsuarioVO.pas',
+  uAppController in 'controller\uAppController.pas',
+  uConexao in 'connection\uConexao.pas',
+  uInstanceController in 'controller\uInstanceController.pas';
 
 {$R *.res}
 
@@ -14,6 +19,5 @@ begin
   GlobalUseSkia := True;
   Application.Initialize;
   Application.CreateForm(TFLogin, FLogin);
-  Application.CreateForm(TFHome, FHome);
   Application.Run;
 end.
