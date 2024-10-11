@@ -1,0 +1,5 @@
+src/database
+src/Android64/Debug
+src/Android64/Release
+src/Win64/Debug/
+src/Win64/Release/

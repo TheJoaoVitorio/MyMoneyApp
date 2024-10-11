@@ -1,0 +1,15 @@
+unit uUsuarioVO;
+
+interface
+
+type
+  TUsuario = class
+    private
+    public
+      property Id      : Integer read fId write fId;
+      property Usuario : String  read fUs
+  end;
+
+implementation
+
+end.
