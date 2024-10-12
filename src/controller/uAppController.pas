@@ -11,7 +11,10 @@ type
       private
 
 
+
       public
+        procedure Logout(Id: Integer);
+
         function TesteConenxao: Boolean;
 
         function GerarHashSHA256(const Senha: string): string;
@@ -35,6 +38,9 @@ var
   HashSenhaInserida, HashSenhaUser : String;
   vQuery : TFDQuery;
 begin
+
+
+
       vQuery := TFDQuery.Create(nil);
 
       if not ValidaEmailCadastro(Email) then
@@ -49,9 +55,11 @@ begin
                       Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
                       SQL.Text   := 'SELECT '+
+                                      'USUARIOS.ID AS ID, '+
                                       'USUARIOS.NOME AS NOME,'+
                                       'USUARIOS.EMAIL AS EMAIL, '+
-                                      'USUARIOS.SENHA AS SENHA '+
+                                      'USUARIOS.SENHA AS SENHA, '+
+                                      'USUARIOS.IS_ACTIVE AS IS_ATIVO'+
                                     'FROM USUARIOS ' +
                                     'WHERE SENHA = :SENHA';
 
@@ -63,7 +71,14 @@ begin
 
 
                   if not vQuery.IsEmpty then
-                    Result := True
+                    begin
+
+                          iUsuarioVO.Id          := vQuery.FieldByName('ID').AsInteger;
+                          iUsuarioVO.NomeUsuario := vQuery.FieldByName('NOME').AsString;
+                          iUsuarioVO.IsActive    := vQuery.FieldByName('IS_ATIVO').AsInteger;
+
+                          Result := True
+                    end
                   else
                     Result := False
 
@@ -192,6 +207,40 @@ begin
 
 
 end;
+
+
+
+procedure TAppController.Logout(Id : Integer);
+var
+  vQuery : TFDQuery;
+begin
+
+      vQuery := TFDQuery.Create(nil);
+      try
+          with vQuery do
+          begin
+                Close;
+                Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
+
+                SQL.Text   := 'UPDATE USUARIO '+
+                              'SET IS_ACTIVE = 0'+
+                              'WHERE ID = :ID';
+
+                ParamByName('ID').AsInteger := Id;
+
+                ExecSQL;
+          end;
+
+
+
+      finally
+          if Assigned(vQuery) then
+            FreeAndNil(vQuery);
+      end;
+
+
+end;
+
 
 
 function TAppController.TesteConenxao : Boolean;

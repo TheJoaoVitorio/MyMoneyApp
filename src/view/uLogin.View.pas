@@ -350,6 +350,7 @@ begin
       IrParaHome;
 end;
 
+
 procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
 var
   PassWord : String;

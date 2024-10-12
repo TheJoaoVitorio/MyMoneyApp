@@ -35,6 +35,9 @@ var
   HashSenhaInserida, HashSenhaUser : String;
   vQuery : TFDQuery;
 begin
+
+
+
       vQuery := TFDQuery.Create(nil);
 
       if not ValidaEmailCadastro(Email) then
@@ -48,10 +51,13 @@ begin
                       Close;
                       Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
-                      SQL.Text   := 'SELECT'+
-                                      'USUARIOS.EMAIL'+
-                                      'USUARIOS.SENHA'+
-                                    'FROM USUARIOS' +
+                      SQL.Text   := 'SELECT '+
+                                      'USUARIOS.ID AS ID, '+
+                                      'USUARIOS.NOME AS NOME,'+
+                                      'USUARIOS.EMAIL AS EMAIL, '+
+                                      'USUARIOS.SENHA AS SENHA, '+
+                                      'USUARIOS.IS_ACTIVE AS IS_ATIVO'+
+                                    'FROM USUARIOS ' +
                                     'WHERE SENHA = :SENHA';
 
                       ParamByName('SENHA').AsString := HashSenhaInserida;
@@ -60,13 +66,18 @@ begin
 
                   end;
 
+
                   if not vQuery.IsEmpty then
+                    begin
 
+                          iUsuarioVO.Id          := vQuery.FieldByName('ID').AsInteger;
+                          iUsuarioVO.NomeUsuario := vQuery.FieldByName('NOME').AsString;
+                          iUsuarioVO.IsActive    := vQuery.FieldByName('IS_ATIVO').AsInteger;
 
-                  if HashSenhaInserida = HashSenhaUser then
-                      ShowMessage('Login bem-sucedido!')  //result
+                          Result := True
+                    end
                   else
-                      ShowMessage('Nome de usuário ou senha incorretos.');  //result
+                    Result := False
 
 
               finally
@@ -193,6 +204,7 @@ begin
 
 
 end;
+
 
 
 function TAppController.TesteConenxao : Boolean;

@@ -11,7 +11,10 @@ type
       private
 
 
+
       public
+        procedure Logout(Id: Integer);
+
         function TesteConenxao: Boolean;
 
         function GerarHashSHA256(const Senha: string): string;
@@ -35,6 +38,9 @@ var
   HashSenhaInserida, HashSenhaUser : String;
   vQuery : TFDQuery;
 begin
+
+
+
       vQuery := TFDQuery.Create(nil);
 
       if not ValidaEmailCadastro(Email) then
@@ -48,11 +54,13 @@ begin
                       Close;
                       Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
-                      SQL.Text   := 'SELECT'+
+                      SQL.Text   := 'SELECT '+
+                                      'USUARIOS.ID AS ID, '+
                                       'USUARIOS.NOME AS NOME,'+
                                       'USUARIOS.EMAIL AS EMAIL, '+
-                                      'USUARIOS.SENHA AS SENHA'+
-                                    'FROM USUARIOS' +
+                                      'USUARIOS.SENHA AS SENHA, '+
+                                      'USUARIOS.IS_ACTIVE AS IS_ATIVO'+
+                                    'FROM USUARIOS ' +
                                     'WHERE SENHA = :SENHA';
 
                       ParamByName('SENHA').AsString := HashSenhaInserida;
@@ -63,9 +71,16 @@ begin
 
 
                   if not vQuery.IsEmpty then
-                    ShowMessage('Login bem-sucedido!')
+                    begin
+
+                          iUsuarioVO.Id          := vQuery.FieldByName('ID').AsInteger;
+                          iUsuarioVO.NomeUsuario := vQuery.FieldByName('NOME').AsString;
+                          iUsuarioVO.IsActive    := vQuery.FieldByName('IS_ATIVO').AsInteger;
+
+                          Result := True
+                    end
                   else
-                    ShowMessage('Nome de usuário ou senha incorretos.');
+                    Result := False
 
 
               finally
@@ -192,6 +207,16 @@ begin
 
 
 end;
+
+
+
+procedure TAppController.Logout(Id : Integer);
+begin
+
+
+
+end;
+
 
 
 function TAppController.TesteConenxao : Boolean;

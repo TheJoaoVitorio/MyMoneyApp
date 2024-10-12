@@ -48,15 +48,24 @@ begin
                       Close;
                       Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
-                      SQL.Text   := 'SELECT'+
-                                      'USUARIOS.EMAIL'+
-                                      'USUARIOS.SENHA'+
-                                    'FROM USUARIOS' +
+                      SQL.Text   := 'SELECT '+
+                                      'USUARIOS.NOME AS NOME,'+
+                                      'USUARIOS.EMAIL AS EMAIL, '+
+                                      'USUARIOS.SENHA AS SENHA '+
+                                    'FROM USUARIOS ' +
                                     'WHERE SENHA = :SENHA';
 
                       ParamByName('SENHA').AsString := HashSenhaInserida;
 
+                      Open;
+
                   end;
+
+
+                  if not vQuery.IsEmpty then
+                    Result := True
+                  else
+                    Result := False
 
 
               finally
@@ -64,12 +73,6 @@ begin
                   FreeAndNil(vQuery);
 
               end;
-
-
-              if HashSenhaInserida = HashSenhaUser then
-                ShowMessage('Login bem-sucedido!')  //result
-              else
-                ShowMessage('Nome de usuário ou senha incorretos.');  //result
 
         end
       else
@@ -114,26 +117,26 @@ begin
 
       try
           with vQuery do  //valida se já existe o email
-            begin
-                Close;
-                Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
-                SQL.Text   := 'SELECT'+
-                                'USUARIOS.EMAIL AS USER_EMAIL '+
-                              'FROM '+
-                                'USUARIOS'+
-                              'WHERE'+
-                                'USER_EMAIL = :EMAIL';
+          begin
+              Close;
+              Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
+              SQL.Text   := 'SELECT'+
+                              'USUARIOS.EMAIL AS USER_EMAIL '+
+                            'FROM '+
+                              'USUARIOS'+
+                            'WHERE'+
+                              'USER_EMAIL = :EMAIL';
 
-                    ParamByName('EMAIL').AsString := Email;
+                  ParamByName('EMAIL').AsString := Email;
 
-                Open;
+              Open;
 
-                if vQuery.RecordCount > 0 then  // se for maior que 0, é pq existe
-                  Result := True
-                else
-                  Result := False;
+              if vQuery.RecordCount > 0 then  // se for maior que 0, é pq existe
+                Result := True
+              else
+                Result := False;
 
-            end;
+          end;
       except
       end;
 end;
@@ -189,6 +192,7 @@ begin
 
 
 end;
+
 
 
 function TAppController.TesteConenxao : Boolean;
