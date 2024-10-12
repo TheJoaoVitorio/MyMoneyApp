@@ -354,25 +354,24 @@ procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
 var
   PassWord : String;
 begin
+      if not (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
+          begin
+            iUsuarioVO := TUsuarioVO.Create;
 
-      iUsuarioVO := TUsuarioVO.Create;
+            iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
+            iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
 
-      iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
-      iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
+            PassWord := edtSenhaCadastroLogin.Text;
 
-      PassWord := edtSenhaCadastroLogin.Text;
-      iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
-      ShowMessage(iUsuarioVO.Senha);
+            iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
 
-      if iAppController.CadastraUsuario then
-          ActFoto.Execute
+            if iAppController.CadastraUsuario then
+                ActFoto.Execute
+            else
+                ShowMessage('Não foi possivel realizar o cadastro!')
+          end
       else
-          ShowMessage('Não foi possivel realizar o cadastro!');
-
-    //if (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
-    //
-
-
+        ShowMessage('Preencha todos os campos!')
 end;
 
 procedure TFLogin.rrBtnCriarContaMouseEnter(Sender: TObject);

@@ -22,7 +22,7 @@ object FLogin: TFLogin
     Size.PlatformDefault = False
     StyleLookup = 'TabControl1Style1'
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = None
     Sizes = (
@@ -40,7 +40,7 @@ object FLogin: TFLogin
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -21110,7 +21110,7 @@ object FLogin: TFLogin
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -45512,7 +45512,7 @@ object FLogin: TFLogin
           Margins.Left = 50.000000000000000000
           Margins.Top = 30.000000000000000000
           Margins.Right = 50.000000000000000000
-          Margins.Bottom = 90.000000000000000000
+          Margins.Bottom = 40.000000000000000000
           Position.X = 50.000000000000000000
           Position.Y = 95.000000000000000000
           Size.Width = 245.000000000000000000
@@ -45747,6 +45747,42 @@ object FLogin: TFLogin
             Size.PlatformDefault = False
             WrapMode = Place
             OnClick = Image1Click
+          end
+        end
+        object lyBtnNaoTemFoto: TLayout
+          Align = MostTop
+          Margins.Left = 50.000000000000000000
+          Margins.Right = 50.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 436.000000000000000000
+          Size.Width = 245.000000000000000000
+          Size.Height = 61.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object rrPularAcao: TRoundRect
+            Align = Center
+            Fill.Color = claNull
+            Size.Width = 245.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF6C62FF
+            OnClick = rrPularAcaoClick
+            OnMouseEnter = rrBtnProximoFotoCadastroMouseEnter
+            OnMouseLeave = rrBtnProximoFotoCadastroMouseLeave
+            object lblPular: TLabel
+              Align = Center
+              StyledSettings = []
+              Size.Width = 90.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Family = 'Montserrat'
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Center
+              Text = 'Pular'
+              TabOrder = 1
+            end
           end
         end
       end
