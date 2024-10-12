@@ -63,9 +63,9 @@ begin
 
 
                   if not vQuery.IsEmpty then
-                    Result := True
+                    ShowMessage('Login bem-sucedido!')
                   else
-                    Result := False
+                    ShowMessage('Nome de usuário ou senha incorretos.');
 
 
               finally

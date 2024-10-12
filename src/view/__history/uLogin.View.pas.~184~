@@ -246,9 +246,23 @@ end;
 
 procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
-//      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
-//        ActFoto.Execute;
-      IrParaHome;
+
+      if (edtEmailLogin.Text = '') or (edtSenhaLogin.Text = '' ) then
+        begin
+            ShowMessage('Preencha os campos!');
+            Exit;
+        end
+      else
+        begin
+
+            if iAppController.ValidaUsuario(edtEmailLogin.Text, edtSenhaLogin.Text) then
+              IrParaHome
+            else
+              ShowMessage('Dados inválidos!');
+
+
+        end;
+
 end;
 
 
@@ -331,17 +345,22 @@ end;
 
 procedure TFLogin.rrPularAcaoClick(Sender: TObject);
 begin
-      ShowMessage('PULA NIMIM')
+      IrParaHome;
 end;
 
 procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
+var
+  PassWord : String;
 begin
 
       iUsuarioVO := TUsuarioVO.Create;
 
       iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
       iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
-      iUsuarioVO.Senha       := edtSenhaCadastroLogin.Text;
+
+      PassWord := edtSenhaCadastroLogin.Text;
+      iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
+      ShowMessage(iUsuarioVO.Senha);
 
       if iAppController.CadastraUsuario then
           ActFoto.Execute

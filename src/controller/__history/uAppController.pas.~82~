@@ -65,7 +65,7 @@ begin
                   if not vQuery.IsEmpty then
                     Result := True
                   else
-                    Result := False
+                    Result := False;
 
 
               finally

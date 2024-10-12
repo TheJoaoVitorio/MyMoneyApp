@@ -137,6 +137,7 @@ type
 
     PERMISSAO : T99Permissions;
     procedure TratarErroPermissao(Sender: TObject);
+    procedure IrParaHome;
   public
     constructor Create(AOwner : TComponent);override;
   end;
@@ -245,14 +246,38 @@ end;
 
 procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
-//      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
-//        ActFoto.Execute;
-      if not Assigned(FHome) then
+
+      if (edtEmailLogin.Text = '') or (edtSenhaLogin.Text = '' ) then
+        begin
+            ShowMessage('Preencha os campos!');
+            Exit;
+        end
+      else
+        begin
+
+            if iAppController.ValidaUsuario(edtEmailLogin.Text, edtSenhaLogin.Text) then
+              IrParaHome
+            else
+              begin
+                  ShowMessage('Dados inválidos!');
+                  Exit;
+              end;
+
+        end;
+
+end;
+
+
+procedure TFLogin.IrParaHome;
+begin
+
+    if not Assigned(FHome) then
         Application.CreateForm(TFHome,FHome);
 
       Application.MainForm := FHome;
       FHome.Show;
       FLogin.Close;
+
 end;
 
 
@@ -322,17 +347,22 @@ end;
 
 procedure TFLogin.rrPularAcaoClick(Sender: TObject);
 begin
-      ShowMessage('PULA NIMIM')
+      IrParaHome;
 end;
 
 procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
+var
+  PassWord : String;
 begin
 
       iUsuarioVO := TUsuarioVO.Create;
 
       iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
       iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
-      iUsuarioVO.Senha       := edtSenhaCadastroLogin.Text;
+
+      PassWord := edtSenhaCadastroLogin.Text;
+      iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
+      ShowMessage(iUsuarioVO.Senha);
 
       if iAppController.CadastraUsuario then
           ActFoto.Execute

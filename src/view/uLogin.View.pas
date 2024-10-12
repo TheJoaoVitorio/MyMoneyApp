@@ -183,7 +183,7 @@ procedure TFLogin.FormDestroy(Sender: TObject);
 begin
       PERMISSAO.DisposeOf;
 
-      if Assigned(iAppController) then
+      if Assigned(iAppController) then                 //revisar isto
         FreeAndNil(iAppController);
 end;
 
@@ -252,14 +252,16 @@ begin
             ShowMessage('Preencha os campos!');
             Exit;
         end
+
       else
         begin
 
             if iAppController.ValidaUsuario(edtEmailLogin.Text, edtSenhaLogin.Text) then
               IrParaHome
             else
-              ShowMessage('Dados inválidos!');
-
+              begin
+                  Exit;
+              end;
 
         end;
 
@@ -365,7 +367,7 @@ begin
       if iAppController.CadastraUsuario then
           ActFoto.Execute
       else
-          ShowMessage('Erro ao cadastrar usuário!');
+          ShowMessage('Não foi possivel realizar o cadastro!');
 
     //if (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
     //

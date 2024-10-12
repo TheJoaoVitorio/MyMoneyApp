@@ -183,7 +183,7 @@ procedure TFLogin.FormDestroy(Sender: TObject);
 begin
       PERMISSAO.DisposeOf;
 
-      if Assigned(iAppController) then
+      if Assigned(iAppController) then                 //revisar isto
         FreeAndNil(iAppController);
 end;
 
@@ -246,9 +246,26 @@ end;
 
 procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
-//      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
-//        ActFoto.Execute;
-      IrParaHome;
+
+      if (edtEmailLogin.Text = '') or (edtSenhaLogin.Text = '' ) then
+        begin
+            ShowMessage('Preencha os campos!');
+            Exit;
+        end
+
+      else
+        begin
+
+            if iAppController.ValidaUsuario(edtEmailLogin.Text, edtSenhaLogin.Text) then
+              IrParaHome
+            else
+              begin
+                  ShowMessage('Dados inválidos!');
+                  Exit;
+              end;
+
+        end;
+
 end;
 
 
@@ -335,18 +352,23 @@ begin
 end;
 
 procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
+var
+  PassWord : String;
 begin
 
       iUsuarioVO := TUsuarioVO.Create;
 
       iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
       iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
-      iUsuarioVO.Senha       := iAppController.GerarHashSHA256(edtSenhaCadastroLogin.Text) ;
+
+      PassWord := edtSenhaCadastroLogin.Text;
+      iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
+      ShowMessage(iUsuarioVO.Senha);
 
       if iAppController.CadastraUsuario then
           ActFoto.Execute
       else
-          ShowMessage('Erro ao cadastrar usuário!');
+          ShowMessage('Não foi possivel realizar o cadastro!');
 
     //if (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
     //

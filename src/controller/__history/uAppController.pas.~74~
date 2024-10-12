@@ -48,24 +48,15 @@ begin
                       Close;
                       Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
-                      SQL.Text   := 'SELECT '+
-                                      'USUARIOS.NOME AS NOME,'+
-                                      'USUARIOS.EMAIL AS EMAIL, '+
-                                      'USUARIOS.SENHA AS SENHA '+
-                                    'FROM USUARIOS ' +
+                      SQL.Text   := 'SELECT'+
+                                      'USUARIOS.EMAIL'+
+                                      'USUARIOS.SENHA'+
+                                    'FROM USUARIOS' +
                                     'WHERE SENHA = :SENHA';
 
                       ParamByName('SENHA').AsString := HashSenhaInserida;
 
-                      Open;
-
                   end;
-
-
-                  if not vQuery.IsEmpty then
-                    Result := True
-                  else
-                    Result := False
 
 
               finally
@@ -73,6 +64,12 @@ begin
                   FreeAndNil(vQuery);
 
               end;
+
+
+              if HashSenhaInserida = HashSenhaUser then
+                ShowMessage('Login bem-sucedido!')  //result
+              else
+                ShowMessage('Nome de usuário ou senha incorretos.');  //result
 
         end
       else
