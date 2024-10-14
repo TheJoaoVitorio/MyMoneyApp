@@ -1,10 +1,4 @@
-﻿[imgBtnAcao]
-Coordinates=324,10,84,58
-
-[Image2]
-Coordinates=257,10,57,58
-
-[lyMain]
+﻿[lyMain]
 Coordinates=245,124,52,36
 
 [lyNavbar]
@@ -16,9 +10,6 @@ Visible=True
 
 [rtBtnHomeAcao]
 Coordinates=176,78,105,36
-
-[Image1]
-Coordinates=190,10,57,58
 
 [Label1]
 Coordinates=127,10,53,58
@@ -33,7 +24,7 @@ Coordinates=10,78,66,36
 Coordinates=64,10,53,58
 
 []
-Coordinates=155,124,80,36
+Coordinates=324,10,84,58
 
 [lyDescricao]
 Coordinates=10,124,60,36

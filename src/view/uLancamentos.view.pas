@@ -7,14 +7,13 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView, uCadLancamentos.view;
+  FMX.ListView, uCadLancamentos.view, System.Skia, FMX.Skia;
 
 type
   TFLancamento = class(TForm)
     lyListaMeses: TLayout;
     lyNavbarBottom: TLayout;
     lyHeader: TLayout;
-    Image1: TImage;
     Label1: TLabel;
     Image2: TImage;
     Image3: TImage;
@@ -23,7 +22,6 @@ type
     rtNavbarBottom: TRectangle;
     lyBtnNavbarBottom: TLayout;
     rtBtnHomeAcao: TRectangle;
-    imgBtnAcao: TImage;
     lyNavbarBottomContainer: TLayout;
     Layout3: TLayout;
     lblValorDespesas: TLabel;
@@ -36,6 +34,8 @@ type
     Label7: TLabel;
     lvLancamento: TListView;
     rtHeader: TRectangle;
+    SkSvg1: TSkSvg;
+    SkSvg3: TSkSvg;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure lvLancamentoUpdateObjects(const Sender: TObject;

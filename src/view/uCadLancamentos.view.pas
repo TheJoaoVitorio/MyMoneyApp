@@ -6,18 +6,15 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Edit,
-  FMX.DateTimeCtrls;
+  FMX.DateTimeCtrls, System.Skia, FMX.Skia;
 
 type
   TFCadLancamentos = class(TForm)
     lyHeader: TLayout;
-    Image1: TImage;
     Label1: TLabel;
-    Image2: TImage;
     lyNavbar: TLayout;
     Rectangle2: TRectangle;
     rtBtnHomeAcao: TRectangle;
-    imgBtnAcao: TImage;
     lyMain: TLayout;
     lyDescricao: TLayout;
     Label2: TLabel;
@@ -44,6 +41,9 @@ type
     DateEdit1: TDateEdit;
     StyleBook1: TStyleBook;
     Rectangle1: TRectangle;
+    SkSvg1: TSkSvg;
+    SkSvg2: TSkSvg;
+    SkSvg3: TSkSvg;
   private
     { Private declarations }
   public

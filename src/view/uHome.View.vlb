@@ -2,10 +2,7 @@
 Coordinates=77,10,100,36
 
 []
-Coordinates=618,56,91,36
-
-[imgMenuHeaderHome]
-Coordinates=10,10,143,58
+Coordinates=215,155,84,58
 Visible=True
 
 [Label6]
@@ -16,9 +13,6 @@ Coordinates=368,155,80,36
 
 [lvLancamento]
 Coordinates=76,1,120,278
-
-[imgBtnAcao]
-Coordinates=215,155,84,58
 
 [Label4]
 Coordinates=175,317,53,58
@@ -65,12 +59,6 @@ Coordinates=428,56,152,36
 
 [lySaldoConta]
 Coordinates=131,413,91,36
-
-[Image1]
-Coordinates=0,0,57,58
-
-[Image2]
-Coordinates=116,317,57,58
 
 [Layout2]
 Coordinates=62,413,60,36

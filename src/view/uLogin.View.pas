@@ -68,11 +68,8 @@ type
     lblTituloEscolherFoto: TLabel;
     lyTirarFoto: TLayout;
     lyEscolherFotoGaleria: TLayout;
-    imgTirarFoto: TImage;
-    imgEscolherFoto: TImage;
     lyContainerEscolherFoto: TLayout;
     lyHeader: TLayout;
-    Image1: TImage;
     lyFooter: TLayout;
     lyFooterContent: TLayout;
     lblLogin: TLabel;
@@ -89,13 +86,11 @@ type
     Label3: TLabel;
     RoundRect10: TRoundRect;
     Layout2: TLayout;
-    Image2: TImage;
     ActLibrary: TTakePhotoFromLibraryAction;
     ActCamera: TTakePhotoFromCameraAction;
     TabVerPreviewPerfil: TTabItem;
     lyTexto: TLayout;
     lyHeaderPreviewFoto: TLayout;
-    Image3: TImage;
     lyBtnCriarContaPreviewFoto: TLayout;
     RoundRect3: TRoundRect;
     lbCriarContaPreviewFoto: TLabel;
@@ -108,6 +103,11 @@ type
     lyBtnNaoTemFoto: TLayout;
     rrPularAcao: TRoundRect;
     lblPular: TLabel;
+    SkSvg1: TSkSvg;
+    SkSvg2: TSkSvg;
+    SkSvg3: TSkSvg;
+    SkSvg4: TSkSvg;
+    SkSvg5: TSkSvg;
     procedure rrBtnEntrarLoginMouseEnter(Sender: TObject);
     procedure rrBtnEntrarLoginMouseLeave(Sender: TObject);
     procedure Label2Click(Sender: TObject);
@@ -173,18 +173,21 @@ begin
 end;
 
 
+
 procedure TFLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
       Action := TCloseAction.caFree;
       FLogin := nil;
 end;
 
+
+
 procedure TFLogin.FormDestroy(Sender: TObject);
 begin
       PERMISSAO.DisposeOf;
 
-      if Assigned(iAppController) then                 //revisar isto
-        FreeAndNil(iAppController);
+      //if Assigned(iAppController) then                 //revisar isto
+      //  FreeAndNil(iAppController);
 end;
 
 
@@ -233,14 +236,12 @@ begin
 
 end;
 
+
+
 procedure TFLogin.TratarErroPermissao(Sender: TObject);
 begin
       ShowMessage('Você não possui permissão de acesso para esse recurso!');
 end;
-
-
-
-
 
 
 
@@ -266,6 +267,37 @@ begin
         end;
 
 end;
+
+
+
+procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
+var
+  PassWord : String;
+begin
+      if (edtNomeCadastroLogin.Text = '') or (edtEmailCadastroLogin.Text = '') or (edtSenhaCadastroLogin.Text = '') then
+        begin
+            ShowMessage('Preencha todos os campos!');
+            Exit
+        end
+      else
+        begin
+          iUsuarioVO := TUsuarioVO.Create;
+
+          iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
+          iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
+
+          PassWord := edtSenhaCadastroLogin.Text;
+
+          iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
+
+          if iAppController.CadastraUsuario then
+              ActFoto.Execute
+          else
+              ShowMessage('Não foi possivel realizar o cadastro!')
+        end
+
+end;
+
 
 
 procedure TFLogin.IrParaHome;
@@ -351,29 +383,7 @@ begin
 end;
 
 
-procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
-var
-  PassWord : String;
-begin
-      if not (edtNomeCadastroLogin.Text <> '') and (edtEmailCadastroLogin.Text <> '' ) and (edtSenhaCadastroLogin.Text <> '') then
-          begin
-            iUsuarioVO := TUsuarioVO.Create;
 
-            iUsuarioVO.NomeUsuario := edtNomeCadastroLogin.Text;
-            iUsuarioVO.Email       := edtEmailCadastroLogin.Text;
-
-            PassWord := edtSenhaCadastroLogin.Text;
-
-            iUsuarioVO.Senha       := iAppController.GerarHashSHA256(PassWord) ;
-
-            if iAppController.CadastraUsuario then
-                ActFoto.Execute
-            else
-                ShowMessage('Não foi possivel realizar o cadastro!')
-          end
-      else
-        ShowMessage('Preencha todos os campos!')
-end;
 
 procedure TFLogin.rrBtnCriarContaMouseEnter(Sender: TObject);
 begin

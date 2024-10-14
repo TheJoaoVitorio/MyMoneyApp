@@ -67,21 +67,21 @@ begin
               Params.UserName := 'root';
               Params.Password := '';
               Params.DriverID := 'SQLITE';
+              LoginPrompt     := False;
         end;
 
         {$IFDEF ANDROID}
-            try
-              FConexao.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'database.db');
-              FConexao.Params.Values['Database'] := GetHomePath + PathDeLim + 'database.db';
-              FConexao.Connected := True;
-            except
-              on E : Exception do
-                begin
-                  raise Exception.Create('Erro ao conectar ao banco de dados.');
-                end;
-            end;
+          try
+            FConexao.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'database.db');
+            //FConexao.Params.Values['Database'] := GetHomePath + PathDeLim + 'database.db';
+            FConexao.Connected := True;
+          except
+            on E : Exception do
+              begin
+                raise Exception.Create('Erro ao conectar ao banco de dados.');
+              end;
+          end;
         {$ENDIF}
-
 
         {$IFDEF MSWINDOWS}
           try

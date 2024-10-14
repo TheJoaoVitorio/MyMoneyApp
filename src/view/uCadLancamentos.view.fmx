@@ -24,86 +24,6 @@ object FCadLancamentos: TFCadLancamentos
       Size.Height = 65.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFF222222
-      object Image1: TImage
-        MultiResBitmap = <
-          item
-            Width = 32
-            Height = 32
-            PNG = {
-              89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-              F40000000473424954080808087C0864880000023C494441545885E557316FD3
-              5010FE2E71C2D2AB1858BAF0A3183AB020DBA952619B20812888AAA840454148
-              A0C64F40496C21C452892EFC2206606040E2B234D83E8682142569E2672306B8
-              F1DEDD7DDF3BDDBBBB07FCEF427503449EDE18E364BB8573E7171A16E32FD46C
-              77FB43FA30A96ED4010F5CDD51E0E952700068B4D7F447F6725AED54050F5DBD
-              0BC26E55FFDF52290381AF5B203CB4F3921C8E73AD3681C0D3EBA4D8B7821629
-              94D88D137A3F7D665584A1AF3D289EDBF800A2AABC69523A9C775A3A0391A71B
-              5079660B0EF0D5B3C001A059264CE06A072487005B644C54950393D24CE54FCA
-              D20C44BE7AA391BCB206074726A517CB2C17662074D5159101335B14AB28C03D
-              93505CC6FACC5B05BE5E197D97C40E1C80622B4EE94959F3B904024FD747B9BC
-              E326DB36AA3B7142564F748640D4D14B5AC811C0A50A744276E2841E58FACC16
-              A116D9813578967DBE70117BB6E073096439D43E4A5179AACE1068B59C1E20B9
-              5D94F6DAD78FD8FE2304FA033A56F065C925B3094484DDD0D3DBB509008049E8
-              68C5E18E881496F11E85AEDEAA4D0000CC90DEF04A051224FB91AF616D020010
-              A794AEAEF2861D09265539083C0DCA5897AADEC0D50E551F460BE741A9366B52
-              1A10B87BDAE7CB0A139198C8D7EE22ABBFB29010B8DB4FE8756D02C0AF950CB0
-              5D4C722576CD90DED626009C2EA5B67B2120393578BD3FA0E3496DA5ADD80CE9
-              31D4B6F37153C7597F5A5BF96312A7B4A78A7B363E1961E639D7FA199994EE13
-              701338F95602FE53CB7136EBE0FD9BF2132177E5D016AA15E80000000049454E
-              44AE426082}
-          end>
-        Align = MostLeft
-        Margins.Left = 8.000000000000000000
-        Margins.Top = 15.000000000000000000
-        Margins.Bottom = 15.000000000000000000
-        Position.X = 8.000000000000000000
-        Position.Y = 15.000000000000000000
-        Size.Width = 50.000000000000000000
-        Size.Height = 35.000000000000000000
-        Size.PlatformDefault = False
-        WrapMode = Place
-      end
-      object Image2: TImage
-        MultiResBitmap = <
-          item
-            Width = 32
-            Height = 32
-            PNG = {
-              89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-              F40000000473424954080808087C08648800000290494441545885ED964D4893
-              7118C07FCFBB4D0B45A9431EEA66D0A92E1D239A958115EF3408DA74107508A2
-              4305051D040F067590BA150B42644E61609B1FEC1085A7F4A447A12202110A4B
-              23489DDBDEA7439BCD775F7E6C76C80776D8F37F9EE7F7E3DDB33F2FECC6FF16
-              FE735AD3D1AAEECC77E74E81BBBAD4F830853F293C148B38D00860EC04BCDDA3
-              47DF4F33A1422FB0284E4E65CEA49260B75B9D07EBE9547800B880C92AA1A537
-              223F2A2EE06FD303298B7EE06C3A354D9233A13159CCAEAB8880CFD4268401A0
-              210D99D12427EC70A8C00E784DBD8BF03A034799570717F3C1CB2ED0EED16E11
-              7A00473A15B784D6D0907C2AD453A6BFA18ACF438FC29DF559EE0D46E45DB1CE
-              B2EC80D7D42722DCB64D8E8622B48168B1DEB52770D5AD7B566BD86B2FA8FAC5
-              72EFB8AC141AE033F5167638CC265C5C2B0587B51D5059AD670E270BF6CF6A3D
-              F31D1E3D99AFD96B6A33C2537B5E0C6E86C3B2500A9E2520CA9FDF2F9F71AD05
-              910E538F64277D17749F082FF9BB70E95144FB5FC9E846E05902108A4A1FE43C
-              CA4CECB78498D7D486358E83E7C0215BDDB223B57E114B45CE127A4D7D2CC2FD
-              02F593892A4EBB566902C6724E95CED0B0746F4B00547C262F10AE17E8184239
-              0C1CB30DFA5263D1181891A5CD08E4B9074413D57AC395A00EE572AE1F97F20D
-              52E5D166E150E0260C8725B518C70FBCD9E09CEF896A029B8517140088C5245E
-              6B610A14BDC900540884C3B25C560180C0882C59161E81992265962ACFB6022F
-              2900303022DF1C299A81CF054ADE0E4665B66202007DA3326728CDC057FB9928
-              C1ADC2372C00101C968F468AF3C0CFAC74D26510DD110180E0A84C1982075801
-              5098C87EBFABB800403022E3585C01928612DB0E7C5BE16BD5E3ED2D5AF7CF04
-              76A35CF11BF7CED5E925210C810000000049454E44AE426082}
-          end>
-        Align = MostRight
-        Margins.Left = 8.000000000000000000
-        Margins.Top = 15.000000000000000000
-        Margins.Bottom = 15.000000000000000000
-        Position.X = 312.000000000000000000
-        Position.Y = 15.000000000000000000
-        Size.Width = 50.000000000000000000
-        Size.Height = 35.000000000000000000
-        Size.PlatformDefault = False
-        WrapMode = Place
-      end
       object Label1: TLabel
         Align = Center
         StyledSettings = [Style]
@@ -120,6 +40,54 @@ object FCadLancamentos: TFCadLancamentos
         TextSettings.HorzAlign = Center
         Text = 'Nova Despesa'
         TabOrder = 2
+      end
+      object SkSvg1: TSkSvg
+        Align = MostLeft
+        Margins.Left = 8.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Bottom = 15.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        Svg.Source = 
+          '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.or' +
+          'g/Graphics/SVG/1.1/DTD/svg11.dtd">'#13#10#13#10'<!-- Uploaded to: SVG Repo' +
+          ', www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->'#13#10'<sv' +
+          'g width="800px" height="800px" viewBox="0 0 24 24" fill="none" x' +
+          'mlns="http://www.w3.org/2000/svg">'#13#10#13#10'<g id="SVGRepo_bgCarrier" ' +
+          'stroke-width="0"/>'#13#10#13#10'<g id="SVGRepo_tracerCarrier" stroke-linec' +
+          'ap="round" stroke-linejoin="round"/>'#13#10#13#10'<g id="SVGRepo_iconCarri' +
+          'er"> <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 1' +
+          '2.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.' +
+          '98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.' +
+          '293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.10' +
+          '73 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.289' +
+          '3 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill=' +
+          '"#5A4FFF"/> </g>'#13#10#13#10'</svg>'
+        Svg.WrapMode = FitCrop
+      end
+      object SkSvg2: TSkSvg
+        Align = MostRight
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Margins.Bottom = 15.000000000000000000
+        Position.X = 304.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        Svg.Source = 
+          '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.or' +
+          'g/Graphics/SVG/1.1/DTD/svg11.dtd">'#13#10#13#10'<!-- Uploaded to: SVG Repo' +
+          ', www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->'#13#10'<sv' +
+          'g width="800px" height="800px" viewBox="0 0 20 20" xmlns="http:/' +
+          '/www.w3.org/2000/svg" fill="none">'#13#10#13#10'<g id="SVGRepo_bgCarrier" ' +
+          'stroke-width="0"/>'#13#10#13#10'<g id="SVGRepo_tracerCarrier" stroke-linec' +
+          'ap="round" stroke-linejoin="round"/>'#13#10#13#10'<g id="SVGRepo_iconCarri' +
+          'er"> <path stroke="#5A4FFF" stroke-linecap="round" stroke-linejo' +
+          'in="round" stroke-width="2" d="M17 5L8 15l-5-4"/> </g>'#13#10#13#10'</svg>'
       end
     end
   end
@@ -148,31 +116,26 @@ object FCadLancamentos: TFCadLancamentos
         Stroke.Color = xFF4C40FF
         XRadius = 12.000000000000000000
         YRadius = 12.000000000000000000
-        object imgBtnAcao: TImage
-          MultiResBitmap = <
-            item
-              Width = 16
-              Height = 16
-              PNG = {
-                89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                610000000473424954080808087C086488000000B949444154388DC591B10DC2
-                400C456DC7B7452AE7C814110505610716C862EC402828D822E999E29C334D8A
-                28BA932210CA972CD9FA5F4FB68C9091F7BE54D5271119339FC6717CA7729403
-                4CD3D412D10100EA10C22597CB0210D1A5FACD80ADDA1FC0DEFB32C67846445E
-                1A66D62CC6A6AAAAB8F295881E28220300D45F2E30FC7E02339F54B54D9C7004
-                80EB3CDE10F1B5F29599FB2C59443A11B1B9BA5C6EFF37FE0F606621D5AFC539
-                A3288A3EC638000038E7EEB9DC07A0263E9D58DDFA000000000049454E44AE42
-                6082}
-            end>
+        object SkSvg3: TSkSvg
           Align = Client
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Right = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
-          Size.Width = 32.000000000000000000
-          Size.Height = 28.000000000000000000
+          Margins.Left = 12.000000000000000000
+          Margins.Top = 12.000000000000000000
+          Margins.Right = 12.000000000000000000
+          Margins.Bottom = 12.000000000000000000
+          Size.Width = 28.000000000000000000
+          Size.Height = 24.000000000000000000
           Size.PlatformDefault = False
-          WrapMode = Center
+          Svg.Source = 
+            '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.or' +
+            'g/Graphics/SVG/1.1/DTD/svg11.dtd">'#13#10#13#10'<!-- Uploaded to: SVG Repo' +
+            ', www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->'#13#10'<sv' +
+            'g width="800px" height="800px" viewBox="0 0 20 20" xmlns="http:/' +
+            '/www.w3.org/2000/svg" fill="none">'#13#10#13#10'<g id="SVGRepo_bgCarrier" ' +
+            'stroke-width="0"/>'#13#10#13#10'<g id="SVGRepo_tracerCarrier" stroke-linec' +
+            'ap="round" stroke-linejoin="round"/>'#13#10#13#10'<g id="SVGRepo_iconCarri' +
+            'er"> <path fill="#222222" fill-rule="evenodd" d="M9 17a1 1 0 102' +
+            ' 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"/> </' +
+            'g>'#13#10#13#10'</svg>'
         end
       end
     end

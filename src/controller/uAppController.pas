@@ -4,6 +4,7 @@ interface
 
 uses
   uUsuarioVO,uInstanceController, FMX.Dialogs, System.SysUtils,
+  FireDAC.Stan.Param,
   FireDAC.Comp.Client,IdHashSHA, IdGlobal,System.Hash;
 
 type
@@ -39,63 +40,51 @@ var
   vQuery : TFDQuery;
 begin
 
-
-
       vQuery := TFDQuery.Create(nil);
 
-      if not ValidaEmailCadastro(Email) then
-        begin
+      HashSenhaInserida := GerarHashSHA256(Senha);
 
-              HashSenhaInserida := GerarHashSHA256(Senha);
+      try
+          with vQuery do
+          begin
+              Close;
+              Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
 
-              try
-                  with vQuery do
-                  begin
-                      Close;
-                      Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
+              SQL.Text   := 'SELECT '+
+                              'USUARIOS.ID_USUARIO AS ID, '+
+                              'USUARIOS.NOME AS NOME, '+
+                              'USUARIOS.EMAIL AS EMAIL, '+
+                              'USUARIOS.SENHA AS SENHA, '+
+                              'USUARIOS.IS_ACTIVE AS IS_ATIVO '+
+                            'FROM USUARIOS ' +
+                            'WHERE SENHA = :SENHA';
 
-                      SQL.Text   := 'SELECT '+
-                                      'USUARIOS.ID AS ID, '+
-                                      'USUARIOS.NOME AS NOME,'+
-                                      'USUARIOS.EMAIL AS EMAIL, '+
-                                      'USUARIOS.SENHA AS SENHA, '+
-                                      'USUARIOS.IS_ACTIVE AS IS_ATIVO'+
-                                    'FROM USUARIOS ' +
-                                    'WHERE SENHA = :SENHA';
+              ParamByName('SENHA').AsString := HashSenhaInserida;
 
-                      ParamByName('SENHA').AsString := HashSenhaInserida;
+              Open;
 
-                      Open;
-
-                  end;
+          end;
 
 
-                  if not vQuery.IsEmpty then
-                    begin
+          if not vQuery.IsEmpty then
+            begin
+                  iUsuarioVO := TUsuarioVO.Create;
+                  iUsuarioVO.Id          := vQuery.FieldByName('ID').AsInteger;
+                  iUsuarioVO.NomeUsuario := vQuery.FieldByName('NOME').AsString;
+                  iUsuarioVO.IsActive    := vQuery.FieldByName('IS_ATIVO').AsInteger;
 
-                          iUsuarioVO.Id          := vQuery.FieldByName('ID').AsInteger;
-                          iUsuarioVO.NomeUsuario := vQuery.FieldByName('NOME').AsString;
-                          iUsuarioVO.IsActive    := vQuery.FieldByName('IS_ATIVO').AsInteger;
-
-                          Result := True
-                    end
-                  else
-                    Result := False
+                  Result := True
+            end
+          else
+            Result := False
 
 
-              finally
-                if Assigned(vQuery) then
-                  FreeAndNil(vQuery);
+      finally
+        if Assigned(vQuery) then
+          FreeAndNil(vQuery);
 
-              end;
+      end;
 
-        end
-      else
-        begin
-            ShowMessage('Email incorreto ou inválido!');
-            Result := False;
-
-        end;
 
 
 end;
@@ -113,47 +102,46 @@ function TAppController.GerarUUID: string;
 var
   GUID: TGUID;
 begin
-
       if CreateGUID(GUID) = 0 then
-
         Result := GUIDToString(GUID)
       else
         Result := '';
-
 end;
 
 
 
-function TAppController.ValidaEmailCadastro(Email : String) : Boolean;
+  function TAppController.ValidaEmailCadastro(Email : String) : Boolean;
 var
   vQuery : TFDQuery;
 begin
-      vQuery := TFDQuery.Create(nil);
 
-      try
-          with vQuery do  //valida se já existe o email
-          begin
-              Close;
-              Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
-              SQL.Text   := 'SELECT'+
-                              'USUARIOS.EMAIL AS USER_EMAIL '+
-                            'FROM '+
-                              'USUARIOS'+
-                            'WHERE'+
-                              'USER_EMAIL = :EMAIL';
+          vQuery := TFDQuery.Create(nil);
 
-                  ParamByName('EMAIL').AsString := Email;
+          try
+              with vQuery do  //valida se já existe o email
+              begin
+                  Close;
+                  Connection := TInstanceController.GetInstance().AcessarConexao.GetConexao;
+                  SQL.Text   := 'SELECT '+
+                                  'USUARIOS.EMAIL AS USER_EMAIL '+
+                                'FROM '+
+                                  'USUARIOS '+
+                                'WHERE '+
+                                  'USER_EMAIL = :EMAIL';
 
-              Open;
+                      ParamByName('EMAIL').AsString := Email;
 
-              if vQuery.RecordCount > 0 then  // se for maior que 0, é pq existe
-                Result := True
-              else
-                Result := False;
+                  Open;
 
+                  if vQuery.RecordCount > 0 then  // se for maior que 0, é pq existe
+                    Result := True
+                  else
+                    Result := False;
+
+              end;
+          except
           end;
-      except
-      end;
+
 end;
 
 
@@ -224,7 +212,7 @@ begin
 
                 SQL.Text   := 'UPDATE USUARIO '+
                               'SET IS_ACTIVE = 0'+
-                              'WHERE ID = :ID';
+                              'WHERE ID_USUARIO = :ID';
 
                 ParamByName('ID').AsInteger := Id;
 
