@@ -3,13 +3,19 @@ unit uConexao;
 interface
 
 uses
-  FireDAC.Comp.Client, System.SysUtils , Vcl.Dialogs;
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error,System.IOUtils,
+  FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Comp.UI,
+  System.SysUtils, FireDAC.DApt, FireDAC.FMXUI.Wait, FireDAC.Comp.DataSet,
+  System.Classes, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite;
 
 type
   TConexao = class
     private
-      FConexao : TFDConnection;
-      FQuery   : TFDQuery;
+      FConexao       : TFDConnection;
+      FQuery         : TFDQuery;
+      FSqlDriverLink : TFDPhysSQLiteDriverLink;
     public
       procedure AfterConstruction ; override;
       procedure BeforeDestruction ; override;
@@ -33,6 +39,9 @@ begin
           ConfiguraConexao;
         end;
 
+      if not Assigned(FSqlDriverLink) then
+          FSqlDriverLink := TFDPhysSQLiteDriverLink.Create(nil);
+
       if not Assigned(FQuery) then
           FQuery   := TFDQuery.Create(nil);
 
@@ -45,6 +54,9 @@ begin
 
       if Assigned(FQuery) then
           FreeAndNil(FQuery);
+
+      if Assigned(FSqlDriverLink) then
+          FreeAndNil(FSqlDriverLink);
 end;
 
 procedure TConexao.ConfiguraConexao;
@@ -55,25 +67,26 @@ begin
               Params.UserName := 'root';
               Params.Password := '';
               Params.DriverID := 'SQLITE';
+              LoginPrompt     := False;
         end;
 
         {$IFDEF ANDROID}
-            try
-              FConexao.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'database.sql');
-              FConexao.Params.Values['Database'] := GetHomePath + PathDeLim + 'database.sql';
-              FConexao.Connected := True;
-            except
-              on E : Exception do
-                begin
-                  raise Exception.Create('Erro ao conectar ao banco de dados.');
-                end;
-            end;
+          try
+            FConexao.Params.Values['Database'] := TPath.Combine(TPath.GetDocumentsPath, 'database.db');
+            //FConexao.Params.Values['Database'] := GetHomePath + PathDeLim + 'database.db';
+            FConexao.Connected := True;
+          except
+            on E : Exception do
+              begin
+                raise Exception.Create('Erro ao conectar ao banco de dados.');
+              end;
+          end;
         {$ENDIF}
-
 
         {$IFDEF MSWINDOWS}
           try
-            FConexao.Params.Database := 'C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\database\database.sql';
+            FConexao.Params.Database := 'C:\Users\joaov\OneDrive\Desktop\MyMoney2\src\database\database.db';
+            FConexao.Connected := True;
           except
             on E: Exception do
               begin
@@ -87,12 +100,15 @@ end;
 
 function TConexao.GetConexao: TFDConnection;
 begin
+      ConfiguraConexao;
 
+      Result := FConexao;
 end;
 
 function TConexao.QueryConexao: TFDQuery;
 begin
-
+      FQuery.Connection := FConexao;
+      Result := FQuery;
 end;
 
 end.

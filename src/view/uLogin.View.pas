@@ -17,7 +17,7 @@ uses
   {$IFDEF ANDROID}
   FMX.VirtualKeyboard,FMX.Platform,
   {$ENDIF}
-  FMX.StdActns;
+  FMX.StdActns, uAppController, uUsuarioVO;
 
 type
   TFLogin = class(TForm)
@@ -105,6 +105,9 @@ type
     lblPreviewNome: TLabel;
     lblPreviewEmail: TLabel;
     ActPreviewFoto: TChangeTabAction;
+    lyBtnNaoTemFoto: TLayout;
+    rrPularAcao: TRoundRect;
+    lblPular: TLabel;
     procedure rrBtnEntrarLoginMouseEnter(Sender: TObject);
     procedure rrBtnEntrarLoginMouseLeave(Sender: TObject);
     procedure Label2Click(Sender: TObject);
@@ -126,6 +129,8 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TabControl1Change(Sender: TObject);
+    procedure rrPularAcaoClick(Sender: TObject);
   private
     FOTO_PERFIL     : TImage;
     COLOR_BTN       : TAlphaColor;
@@ -133,6 +138,7 @@ type
 
     PERMISSAO : T99Permissions;
     procedure TratarErroPermissao(Sender: TObject);
+    procedure IrParaHome;
   public
     constructor Create(AOwner : TComponent);override;
   end;
@@ -156,6 +162,14 @@ begin
 
       PERMISSAO       := T99Permissions.Create;
       FOTO_PERFIL     := TImage.Create(nil);
+
+      if not Assigned(iAppController) then
+        iAppController := TAppController.Create;
+
+      if not iAppController.TesteConenxao then
+        ShowMessage('Desconectado');
+
+
 
 end;
 
@@ -217,6 +231,16 @@ begin
 
 end;
 
+procedure TFLogin.TabControl1Change(Sender: TObject);
+begin
+      if TabControl1.ActiveTab = TabVerPreviewPerfil then
+      begin
+            lblPreviewNome.Text   := iUsuarioVO.NomeUsuario;
+            lblPreviewEmail.Text  := iUsuarioVO.Email;
+      end;
+
+end;
+
 procedure TFLogin.TratarErroPermissao(Sender: TObject);
 begin
       ShowMessage('Você não possui permissão de acesso para esse recurso!');
@@ -230,14 +254,44 @@ end;
 
 procedure TFLogin.rrBtnEntrarLoginClick(Sender: TObject);
 begin
-//      if (edtEmailLogin.Text <> '') and (edtSenhaLogin.Text <> '' ) then
-//        ActFoto.Execute;
-      if not Assigned(FHome) then
-        Application.CreateForm(TFHome,FHome);
 
-      Application.MainForm := FHome;
-      FHome.Show;
-      FLogin.Close;
+      if (edtEmailLogin.Text = '') or (edtSenhaLogin.Text = '' ) then
+        begin
+            ShowMessage('Preencha os campos!');
+            Exit;
+        end
+
+      else
+        begin
+
+            if iAppController.ValidaUsuario(edtEmailLogin.Text, edtSenhaLogin.Text) then
+              IrParaHome
+            else
+              begin
+                  Exit;
+              end;
+
+        end;
+
+end;
+
+
+procedure TFLogin.IrParaHome;
+begin
+
+    try
+        if Assigned(FHome) then
+        begin
+            FreeAndNil(FHome);
+        end;
+
+        Application.CreateForm(TFHome, FHome);
+        Application.MainForm := FHome;
+        FHome.Show;
+    finally
+        Self.Close;
+    end;
+
 end;
 
 
@@ -287,7 +341,8 @@ end;
 
 procedure TFLogin.rrBtnProximoFotoCadastroClick(Sender: TObject);
 begin
-      ActEscolher.Execute;
+      //ActEscolher.Execute;
+      IrParaHome;
 end;
 
 
@@ -304,6 +359,11 @@ end;
 
 
 
+
+procedure TFLogin.rrPularAcaoClick(Sender: TObject);
+begin
+      IrParaHome;
+end;
 
 procedure TFLogin.rrBtnCriarContaClick(Sender: TObject);
 begin

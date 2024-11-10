@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView;
+  FMX.ListView, uCadLancamentos.view;
 
 type
   TFLancamento = class(TForm)
@@ -40,6 +40,7 @@ type
     procedure lvLancamentoUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
   private
+    procedure EditarLancamento(IdLancamento: String);
     { Private declarations }
   public
     { Public declarations }
@@ -66,6 +67,15 @@ procedure TFLancamento.FormShow(Sender: TObject);
 begin
       FHome.AddLancamento(lvLancamento,'1','COMPRA','TRANSPORTE', -45,nil,20/08);
       FHome.AddLancamento(lvLancamento,'2','HAMBURGUER','TRANSPORTE', -10,nil,20/08);
+end;
+
+procedure TFLancamento.EditarLancamento( IdLancamento : String );
+begin
+
+      if not Assigned(FCadLancamentos) then
+        Application.CreateForm(TFCadLancamentos, FCadLancamentos);
+
+      FCadLancamentos.Show;
 end;
 
 procedure TFLancamento.lvLancamentoUpdateObjects(const Sender: TObject;

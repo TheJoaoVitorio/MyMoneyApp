@@ -43,10 +43,10 @@ begin
       Result := iInstance
 end;
 
-initialization
+//initialization
 
-finalization
-  if iInstance <> nil then
-    iInstance.Free;
+//finalization
+//  if iInstance <> nil then
+//    iInstance.Free;
 
 end.

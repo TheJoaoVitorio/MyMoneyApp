@@ -3,26 +3,27 @@
 	<Transactions>
     <Transaction>2024/09/26 15:50:33.000.602,=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
     <Transaction>2024/10/03 14:46:03.000.971,=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.pas=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.fmx=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.fmx</Transaction>
-    <Transaction>2024/10/03 17:06:58.000.065,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\MyMoneyApp.dproj=C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.fmx=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.fmx</Transaction>
+    <Transaction>2024/10/03 14:47:11.000.229,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Unit4.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uLogin.View.pas</Transaction>
+    <Transaction>2024/10/03 17:06:58.000.065,C:\Users\Delphi - João\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\MyMoneyApp.dproj</Transaction>
     <Transaction>2024/10/04 11:15:58.000.341,=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/04 11:16:46.000.106,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\commons\u99Permissions.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/04 11:16:46.000.106,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\commons\u99Permissions.pas</Transaction>
     <Transaction>2024/10/04 13:31:24.000.728,=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/04 13:33:13.000.972,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.pas</Transaction>
-    <Transaction>2024/10/04 13:33:13.000.972,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.fmx=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.fmx</Transaction>
+    <Transaction>2024/10/04 13:33:13.000.972,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.pas=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/04 13:33:13.000.972,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.fmx=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\Unit1.fmx</Transaction>
     <Transaction>2024/10/04 13:41:17.000.899,C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.pas=</Transaction>
     <Transaction>2024/10/04 14:19:20.000.985,=C:\Users\Delphi - João\Desktop\MyMy -MyMoney\src\view\uHome.View.pas</Transaction>
     <Transaction>2024/10/05 13:11:19.000.120,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\src\commons\u99Permissions.pas=</Transaction>
     <Transaction>2024/10/05 13:12:08.000.720,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\src\commons\u99Permissions.pas</Transaction>
     <Transaction>2024/10/09 19:14:33.000.063,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\view\uLancamentos.view.pas</Transaction>
     <Transaction>2024/10/09 19:22:40.000.473,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/09 19:23:48.000.908,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\VO\uUsuarioVO.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 19:23:48.000.908,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\VO\uUsuarioVO.pas</Transaction>
     <Transaction>2024/10/09 19:36:10.000.141,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/09 19:39:14.000.365,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\controller\uAppController.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 19:39:14.000.365,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\controller\uAppController.pas</Transaction>
     <Transaction>2024/10/09 19:42:57.000.192,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/09 19:45:33.000.201,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\connection\uConexao.pas</Transaction>
-    <Transaction>2024/10/09 20:04:52.194,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
-    <Transaction>2024/10/09 20:09:59.735,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\controller\uInstanceController.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 19:45:33.000.201,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\connection\uConexao.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 20:04:52.000.194,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas</Transaction>
+    <Transaction>2024/10/09 20:09:59.000.735,C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\Unit1.pas=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\controller\uInstanceController.pas</Transaction>
+    <Transaction>2024/11/10 18:54:51.626,=C:\Users\joaov\OneDrive\Desktop\MyMoney\MyMoneyApp\MyMoneyApp\src\view\uCadLancamentos.view.pas</Transaction>
   </Transactions>
 </BorlandProject>

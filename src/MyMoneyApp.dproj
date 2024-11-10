@@ -223,6 +223,10 @@
         <DCCReference Include="controller\uAppController.pas"/>
         <DCCReference Include="connection\uConexao.pas"/>
         <DCCReference Include="controller\uInstanceController.pas"/>
+        <DCCReference Include="view\uCadLancamentos.view.pas">
+            <Form>FCadLancamentos</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
