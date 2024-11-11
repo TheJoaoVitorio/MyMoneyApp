@@ -10,15 +10,6 @@ Coordinates=265,192,89,36
 [Image1]
 Coordinates=140,10,57,58
 
-[Image3]
-Coordinates=230,78,57,58
-
-[Image2]
-Coordinates=73,10,57,58
-
-[Label2]
-Coordinates=332,10,53,58
-
 [rtNavbarBottom]
 Coordinates=10,192,105,36
 
@@ -52,4 +43,13 @@ Coordinates=125,192,60,36
 
 [lyNavbarBottomContainer]
 Coordinates=195,192,60,36
+
+[imgVoltarMesLancamento]
+Coordinates=73,10,57,58
+
+[imgAvancarMesLancamento]
+Coordinates=230,78,57,58
+
+[lblMesLancamento]
+Coordinates=332,10,53,58
 

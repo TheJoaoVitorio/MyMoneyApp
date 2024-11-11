@@ -39,6 +39,7 @@ type
     lblVerTodos: TLabel;
     lvLancamento: TListView;
     Layout1: TLayout;
+    StyleBook1: TStyleBook;
     procedure FormShow(Sender: TObject);
     procedure lvLancamentoUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);

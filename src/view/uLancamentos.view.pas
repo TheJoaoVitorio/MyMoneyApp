@@ -16,10 +16,10 @@ type
     lyHeader: TLayout;
     Image1: TImage;
     Label1: TLabel;
-    Image2: TImage;
-    Image3: TImage;
+    imgVoltarMesLancamento: TImage;
+    imgAvancarMesLancamento: TImage;
     RoundRect1: TRoundRect;
-    Label2: TLabel;
+    lblMesLancamento: TLabel;
     rtNavbarBottom: TRectangle;
     lyBtnNavbarBottom: TLayout;
     rtBtnHomeAcao: TRectangle;

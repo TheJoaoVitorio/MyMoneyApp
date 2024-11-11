@@ -20,6 +20,5 @@ begin
   GlobalUseSkia := True;
   Application.Initialize;
   Application.CreateForm(TFLogin, FLogin);
-  Application.CreateForm(TFCadLancamentos, FCadLancamentos);
   Application.Run;
 end.

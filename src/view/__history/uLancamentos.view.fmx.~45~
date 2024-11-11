@@ -1,0 +1,444 @@
+object FLancamento: TFLancamento
+  Left = 0
+  Top = 0
+  ClientHeight = 604
+  ClientWidth = 345
+  Fill.Color = xFF292929
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object lyListaMeses: TLayout
+    Align = MostTop
+    Margins.Top = 10.000000000000000000
+    Position.Y = 75.000000000000000000
+    Size.Width = 345.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object imgVoltarMesLancamento: TImage
+      MultiResBitmap = <
+        item
+          Width = 32
+          Height = 32
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+            F40000000473424954080808087C08648800000347494441545885ED974F6C54
+            5514C67FE7CD743A9860A9286AC5EA061B371A1B74231A4434A9A93323585387
+            2E0C5B5D68082D61236EC03FC14674EDC2346375C469A7609168420C0B179A82
+            2626DA0D512C42524965D1D6E9DC8F455FEB74665E993763D20DDFEAE69EF3CE
+            EF7B27EFBE771EDCD41ACBC224F725D4E18CDD882E8C4DC0463F342DB8EC89F1
+            8508C73FCBD96FFFAB81BE6E75BA08EF003B6BAC7B1A63203362E71A32B07DBB
+            A26D2D1C055E033CE08A6014E32B8A4C2EC4B902109D6393E7F180E0394412E3
+            0EC0011F4CCDD07FE68C2D8436F04A4A1BFE85CF11CF00F332DE5FE738F271DE
+            AEAD667A4F976E558C83C0EB403370BA10E3A56CD6666A36D0D5A5E6D618DF02
+            8F031724929FE6EDA7D5C0E5EA7B410F3BC708703FE2ECD5023BC7C76DBE3CCF
+            AB76F186181FFAF08B16E189B07080A19C9D77F0243085B1ADB589C16A79151D
+            48A7F418E27B60D6896DC3799B080B2F556F425B3DE33B208EF16866C47E2C8D
+            5776401C060C71B45138C070DE7E0006FD9A87CBE32B0CF425D4013C0D4CC7E1
+            BD46E14B2AC47817F81B7836DDAD2D81068AC68B0088E3414F7B3AA981B006B2
+            599B41E400146177A0013376F89B27ABC2533A04BC1DD6805FFB24802D76B8BA
+            0144BBBFFAA52A5CBC590F1CC0B45CB3BD743F5A967717C07C337FAD064F27A5
+            5AA099515B3E6531989A5B5CDE5D9A537E0A0C203EC34A8088D702AC472B3B60
+            4C21B61463B401934BDB99513B904E696EA90BA57756AB66C53DFE557F96EE97
+            77E00F00CFE3C1F20299113B84F15658F032E8BF9A17030DC8710AC019A96A45
+            1A3121166B4A8C071A8840DE5F26F626B43ED04448F5F4A805E80630C758A081
+            A1BCFD0A7C036C9C83FD6141418A1618006E03BECE9CB0C9D258C5B7C0897EC0
+            61ECEB4DE89146E1BD096D35F106E03C8F8AB7688581E1BC4D481C036EF18CFC
+            9E5DDA5C373CA97B3D6314884B0C0EE5ECFC0D0D007474B20F7102D8AC22E7D2
+            093D1516FEF2F3DAE1C104D0068C7574D25F2D2FF03CF7F4A8A5A94076792413
+            1F354538F249CEA66F00BEDD3C0E02AF0231EA19C996546528BD068CC9F8D219
+            3FAFBBCAEF00B3ADB4471D0F2176C9E806D6034EE2D8A57FD85FD7505AAA351B
+            CB2B8CACFC31B90FB8D30F5D165C303855F4F822CC8FC94DADB9AE0367692D95
+            0008FC510000000049454E44AE426082}
+        end>
+      Align = MostLeft
+      Size.Width = 58.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+    end
+    object imgAvancarMesLancamento: TImage
+      MultiResBitmap = <
+        item
+          Width = 32
+          Height = 32
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+            F40000000473424954080808087C0864880000033F494441545885ED974F6C14
+            7514C73F6F76BB5D4CB05410B562F5828D170D0D7A110D229AD4D4DD0AD4D4A5
+            07E3550F12429B70112EE09F60237AF6609AB5BAE2B65BB4483421C683074941
+            1313ED85285621A9A47268CB767F5F0F9D36D3DD59BAB325E985EFE997F7DEBE
+            EF675E6676DEC06DADB12C4A716F4A6DCED88BE8C0D80C6CF45353822B9E189B
+            8F71EAB3BCFD7E4B017A3BD5EE62BC03ECAEB1EF598CFEECB05D5815C0CE9D8A
+            B73471027803F080AB82118CAF2931319FE42A407C96CD9EC7C3821710698CBB
+            01077C30394DDFB973361F19E0D52E6DB8019F239E03E664BCBFCE71FCE3825D
+            BF19F4FE0EDDA9048781378146E06C31C1CBB99C4DD70CD0D1A1C6E604DF014F
+            029724D29F16ECE79B1997ABF7253DE61CC3C043881FAE15D93D366673E5755E
+            D88F3724F8D037BF6C319E8A6A0E3098B78B0E9E062631763437301056573181
+            4C979E40FC08CC38B163A860E351CD83EA4969BB677C0F24311ECF0EDBF960BE
+            7202E218608813AB3507182AD84FC080DFF358797E19406F4A6DC0B3C05412DE
+            5BADF9A28A09DE05FE059ECF746A6B558092B10F00716AA5BB3D4C99B4FAC3E2
+            B99C4D23F2008AB1B72A8019BBFCE05751CD7DBD9DE9D291B084D9424F5B9870
+            3800A2D53FFD5A270088B7C2204C4B3D5B83F17859DDBD00738DFC130C66D252
+            1D1064876D09240193B30BC7FB82A5E54F810124A78966180E91ACA56CF9048C
+            49C4D65282166062319C1DB19A5E5A4B93328E06AF1E6046DCEF77F92B182F9F
+            C09F009EC723B518862AC4BCACE7E5AA00729C017046D7AD3407100B3D25C6AA
+            02C4A0E01F53AFA5B43EAA7F35F3EE6E35019D00E618AD0A3058B0DF806F818D
+            B370282A4035C58BF4037701DF644FDB443057F12E70A20F7018077B52DAB65A
+            F39E94B69B380038CFA3E29FB20260A860E31227813B3CA3B07F8FB6D46D9ED6
+            039E310224250606F37671450080B6760E224E035B54E24226A567A29ABFF2A2
+            7679300EB400A36DEDF485D5557DBEBBBBD5D45024B7B492898F1A621CFF246F
+            532B186F328FC3C0EB40827A56B245852CA5D78151195F3AE39775D7F80360A6
+            99D6B8E351C41E199DC07AC0499CFCFB3F0ED5B59406B5666B7905C8F20F9307
+            817BFCD415C1258333258F2FA27C98DCD69AEB7FE21F2CA4FEE8762100000000
+            49454E44AE426082}
+        end>
+      Align = MostRight
+      Position.X = 287.000000000000000000
+      Size.Width = 58.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+    end
+    object RoundRect1: TRoundRect
+      Align = Center
+      Fill.Color = xFF5A4FFF
+      Size.Width = 145.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object lblMesLancamento: TLabel
+        Align = Center
+        StyledSettings = [Style]
+        TextSettings.Font.Family = 'Montserrat'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Novembro'
+        TabOrder = 0
+      end
+    end
+  end
+  object lyNavbarBottom: TLayout
+    Align = MostBottom
+    Position.Y = 496.000000000000000000
+    Size.Width = 345.000000000000000000
+    Size.Height = 108.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rtNavbarBottom: TRectangle
+      Align = Client
+      Corners = [TopLeft, TopRight]
+      Fill.Color = xFF222222
+      Size.Width = 345.000000000000000000
+      Size.Height = 108.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 25.000000000000000000
+      YRadius = 20.000000000000000000
+      object lyBtnNavbarBottom: TLayout
+        Align = MostLeft
+        Size.Width = 85.000000000000000000
+        Size.Height = 108.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object rtBtnHomeAcao: TRectangle
+          Align = Center
+          Fill.Color = xFF5A4FFF
+          Margins.Top = 20.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          Size.Width = 52.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF4C40FF
+          XRadius = 12.000000000000000000
+          YRadius = 12.000000000000000000
+          object imgBtnAcao: TImage
+            MultiResBitmap = <
+              item
+                Width = 16
+                Height = 16
+                PNG = {
+                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+                  610000000473424954080808087C086488000000B949444154388DC591B10DC2
+                  400C456DC7B7452AE7C814110505610716C862EC402828D822E999E29C334D8A
+                  28BA932210CA972CD9FA5F4FB68C9091F7BE54D5271119339FC6717CA7729403
+                  4CD3D412D10100EA10C22597CB0210D1A5FACD80ADDA1FC0DEFB32C67846445E
+                  1A66D62CC6A6AAAAB8F295881E28220300D45F2E30FC7E02339F54B54D9C7004
+                  80EB3CDE10F1B5F29599FB2C59443A11B1B9BA5C6EFF37FE0F606621D5AFC539
+                  A3288A3EC638000038E7EEB9DC07A0263E9D58DDFA000000000049454E44AE42
+                  6082}
+              end>
+            Align = Client
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Size.Width = 32.000000000000000000
+            Size.Height = 28.000000000000000000
+            Size.PlatformDefault = False
+            WrapMode = Center
+          end
+        end
+      end
+      object lyNavbarBottomContainer: TLayout
+        Align = Center
+        Size.Width = 260.000000000000000000
+        Size.Height = 108.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Layout3: TLayout
+          Align = MostLeft
+          Size.Width = 81.000000000000000000
+          Size.Height = 108.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          object lblValorDespesas: TLabel
+            Align = Center
+            StyledSettings = []
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 85.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'R$ 3.200.00'
+            TabOrder = 1
+          end
+          object Label5: TLabel
+            Align = Center
+            StyledSettings = [Style]
+            Margins.Top = 25.000000000000000000
+            Size.Width = 54.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.Size = 10.000000000000000000
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'RECEITA'
+            TabOrder = 0
+          end
+        end
+        object Layout2: TLayout
+          Align = MostLeft
+          Position.X = 172.000000000000000000
+          Size.Width = 81.000000000000000000
+          Size.Height = 108.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Label3: TLabel
+            Align = Center
+            StyledSettings = []
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 85.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'R$ 3.200.00'
+            TabOrder = 1
+          end
+          object Label4: TLabel
+            Align = Center
+            StyledSettings = [Style]
+            Margins.Top = 25.000000000000000000
+            Size.Width = 55.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.Size = 10.000000000000000000
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'SALDO'
+            TabOrder = 0
+          end
+        end
+        object Layout4: TLayout
+          Align = MostLeft
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Position.X = 86.000000000000000000
+          Size.Width = 81.000000000000000000
+          Size.Height = 108.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Label6: TLabel
+            Align = Center
+            StyledSettings = []
+            Margins.Bottom = 2.000000000000000000
+            Size.Width = 85.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'R$ 3.200.00'
+            TabOrder = 1
+          end
+          object Label7: TLabel
+            Align = Center
+            StyledSettings = [Style]
+            Margins.Top = 25.000000000000000000
+            Size.Width = 61.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Montserrat'
+            TextSettings.Font.Size = 10.000000000000000000
+            TextSettings.FontColor = xFF5A4FFF
+            Text = 'DESPESAS'
+            TabOrder = 0
+          end
+        end
+      end
+    end
+  end
+  object lyHeader: TLayout
+    Align = MostTop
+    Size.Width = 345.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Image1: TImage
+      MultiResBitmap = <
+        item
+          Width = 32
+          Height = 32
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+            F40000000473424954080808087C0864880000023C494441545885E557316FD3
+            5010FE2E71827A5D1858BAF0A3183AB020DBA952619B20812888AAA840454148
+            A0C64F40496C21C452892EFC2206606060E2A206DBC75090A2244DFC6CC40037
+            DEBBBBEF7BA77B77F780FF5DA86E80C8D31B639C6CB770EEFC42C362FC859AED
+            6E7F481F26D58D3AE081AB3B0A3C5D0A0E008DF69AFEC85E4EAB9DAAE0A1AB77
+            41D8ADEAFF5B2A6520F0750B8487765E92C371AED52610787A9D14FB56D02285
+            12BB7142EFA7CFAC8A30F4B507C5731B1F405495374D4A87F34E4B6720F27403
+            2ACF6CC101BE7A16380034CB84095CED80E410608B8C89AA7260529AA9FC4959
+            9A81C8576F349257D6E0E0C8A4F46299E5C20C84AEBA223260668B621505B867
+            128ACB589F79ABC0D72BA3EF92D88103506CC5293D296B3E9740E0E9FA289777
+            DC64DB4675274EC8EA89CE10883A7A490B3902B854814EC84E9CD0034B9FD922
+            D4223BB006CFB2CF172E62CF167C2E812C87DA47292A4FD51902AD96D30324B7
+            8BD25EFBFA11DB7F84407F40C70ABE2CB964368188B01B7A7ABB36010030091D
+            AD38DC1191C232DEA3D0D55BB509008019D21B5EA94082643FF235AC4D0000E2
+            94D2D555DEB023C1A42A0781A74119EB52D51BB8DAA1EAC368E13C28D5664D4A
+            0302774FFB7C5961221213F9DA5D64F55716120277FB09BDAE4D00F8B59201B6
+            8B49AEC4AE19D2DBDA0480D3A5D4762F0424A706AFF707743CA9ADB4159B213D
+            86DA763E6EEA38EB4F6B2B7F4CE294F65471CFC62723CC3CE75A3F2393D27D02
+            6E0227DF4AC07F6A39CE661DBC7F537E022B2AE5E8D1FE19E80000000049454E
+            44AE426082}
+        end>
+      Align = MostLeft
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 15.000000000000000000
+      Margins.Bottom = 15.000000000000000000
+      Position.X = 8.000000000000000000
+      Position.Y = 15.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Place
+    end
+    object Label1: TLabel
+      Align = Client
+      StyledSettings = [Style]
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 14.000000000000000000
+      Margins.Right = 65.000000000000000000
+      Margins.Bottom = 14.000000000000000000
+      Size.Width = 212.000000000000000000
+      Size.Height = 37.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Montserrat'
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.FontColor = xFF5A4FFF
+      TextSettings.HorzAlign = Center
+      Text = 'Lan'#231'amentos'
+      TabOrder = 2
+    end
+  end
+  object lvLancamento: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    OnUpdateObjects = lvLancamentoUpdateObjects
+    ItemSpaces.Left = 0.000000000000000000
+    ItemSpaces.Right = 0.000000000000000000
+    Align = Client
+    Size.Width = 345.000000000000000000
+    Size.Height = 364.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'txtDESCRICAO'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Montserrat'
+        Appearance.Font.StyleExt = {00070000000000000004000000}
+        Appearance.TextAlign = Leading
+        Appearance.WordWrap = True
+        Appearance.TextColor = xFF5A4FFF
+        Appearance.Trimming = Character
+        Appearance.Width = 138.000000000000000000
+        Appearance.Height = 25.000000000000000000
+        Appearance.PlaceOffset.X = 67.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'imgICONE'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 50.000000000000000000
+        Appearance.Height = 44.000000000000000000
+        Appearance.PlaceOffset.X = 15.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'txtCATEGORIA'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Montserrat'
+        Appearance.Font.Size = 10.000000000000000000
+        Appearance.TextAlign = Leading
+        Appearance.TextColor = xFF5A4FFF
+        Appearance.Width = 107.000000000000000000
+        Appearance.Height = 17.000000000000000000
+        Appearance.PlaceOffset.X = 71.000000000000000000
+        Appearance.PlaceOffset.Y = 23.000000000000000000
+        Appearance.Opacity = 0.699999988079071000
+      end
+      item
+        AppearanceObjectName = 'txtVALOR'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Montserrat'
+        Appearance.Font.StyleExt = {00070000000000000004000000}
+        Appearance.TextAlign = Trailing
+        Appearance.TextColor = xFF5A4FFF
+        Appearance.Width = 87.000000000000000000
+        Appearance.Height = 28.000000000000000000
+        Appearance.Align = Trailing
+        Appearance.PlaceOffset.X = -22.000000000000000000
+        Appearance.PlaceOffset.Y = -3.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'txtDATA'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Font.Family = 'Montserrat'
+        Appearance.Font.Size = 9.000000000000000000
+        Appearance.TextAlign = Trailing
+        Appearance.TextColor = xFF5A4FFF
+        Appearance.Width = 71.000000000000000000
+        Appearance.Height = 20.000000000000000000
+        Appearance.Align = Trailing
+        Appearance.PlaceOffset.X = -25.000000000000000000
+        Appearance.PlaceOffset.Y = 21.000000000000000000
+        Appearance.Opacity = 0.699999988079071000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+    StyleLookup = 'lvLancamentoStyle1'
+  end
+end

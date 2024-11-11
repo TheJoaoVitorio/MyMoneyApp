@@ -22,7 +22,7 @@ object FLogin: TFLogin
     Size.PlatformDefault = False
     StyleLookup = 'TabControl1Style1'
     TabHeight = 49.000000000000000000
-    TabIndex = 4
+    TabIndex = 3
     TabOrder = 1
     TabPosition = None
     OnChange = TabControl1Change
@@ -45493,7 +45493,7 @@ object FLogin: TFLogin
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -45792,7 +45792,7 @@ object FLogin: TFLogin
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False

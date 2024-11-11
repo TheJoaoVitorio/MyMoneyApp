@@ -284,7 +284,6 @@ begin
         begin
             FreeAndNil(FHome);
         end;
-
         Application.CreateForm(TFHome, FHome);
         Application.MainForm := FHome;
         FHome.Show;
